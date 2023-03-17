@@ -24,42 +24,73 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="card">
+            <div class="card my-3">
               <div class="card-header">
-                <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3 class="card-title">Data Sample Link</h3>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="create.php" class="btn btn-sm btn-primary float-right">
+                      <i class="fa fa-plus"></i>&nbsp; Tambah Data
+                    </a>
+                  </div>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Umur</th>
+                    <th>Status</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
+                    <td>1</td>
+                    <td>Achmad Rizky</td>
+                    <td>Bogor, Indonesia</td>
+                    <td>30 Tahun</td>
+                    <td>Mahasiswa</td>
+                    <td>Jakarta, 27/Oktober/1992</td>
+                    <td>
+                      <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
+                      <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
+                      <button class="btn btn-sm btn-danger">Delete</button>
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
                   </tr>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
+                    <td>2</td>
+                    <td>Abdul Rahman</td>
+                    <td>Kalimantan, Indonesia</td>
+                    <td>13 Tahun</td>
+                    <td>Pelajar</td>
+                    <td>Jakarta, 30/Februari/1998</td>
+                    <td>
+                      <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
+                      <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
+                      <button class="btn btn-sm btn-danger">Delete</button>
                     </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
                   </tr>
-                  
+                  <tr>
+                    <td>3</td>
+                    <td>Hasan</td>
+                    <td>Jakarta, Indonesia</td>
+                    <td>59 Tahun</td>
+                    <td>Wiraswasta</td>
+                    <td>Jakarta, 27/Januari/1959</td>
+                    <td>
+                      <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
+                      <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
+                      <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                  </tr>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -73,6 +104,169 @@
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+    </div>
+
+    <!-- modal create data -->
+    <div class="modal fade" id="modal-create">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Tambah Data</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Nama</label>
+                  <input type="text" name="nama" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Umur</label>
+                  <input type="number" name="umur" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Status</label>
+                  <input type="text" name="status" id="" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="">Tanggal Lahir</label>
+                <input type="date" name="tgl_lahir" id="" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="">Alamat</label>
+                <textarea name="alamat" cols="20" rows="6" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+    <!-- modal edit data -->
+    <div class="modal fade" id="modal-edit">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Data</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Nama</label>
+                  <input type="text" name="nama" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Umur</label>
+                  <input type="number" name="umur" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Status</label>
+                  <input type="text" name="status" id="" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="">Tanggal Lahir</label>
+                <input type="date" name="tgl_lahir" id="" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="">Alamat</label>
+                <textarea name="alamat" cols="20" rows="6" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+    <!-- modal detail data -->
+    <div class="modal fade" id="modal-detail">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Detail Data</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Nama</label>
+                  <p> Achmad Rizky </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Umur</label>
+                  <p> 30 Tahun </p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Status</label>
+                  <p> Pekerja </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="">Tanggal Lahir</label>
+                <p> Jakarta, 27 Oktober 1992 </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="">Alamat</label>
+                <p>
+                  Jln. Jenderal Sudirman Jakarta Selatan 12000
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
     </div>
     
     <!-- // footer -->
