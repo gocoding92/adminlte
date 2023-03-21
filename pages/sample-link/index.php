@@ -52,55 +52,32 @@
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Alamat</th>
                     <th>Umur</th>
                     <th>Status</th>
                     <th>Tanggal Lahir</th>
+                    <th>Alamat</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
+                     <?php                      
+                     $query = mysqli_query($db, "SELECT * FROM tbl_user");
+                     $no = 1;
+                     while ($data = mysqli_fetch_assoc($query)) {?>
                   <tr>
-                    <td>1</td>
-                    <td>Abdul Rahman</td>
-                    <td>Komplek Inkopad</td>
-                    <td>4</td>
-                    <td>Bujang</td>
-                    <td>25/12/01</td>
+                    <td><?php echo $no++;?></td>
+                    <td><?php echo $data['nama'];  ?></td>
+                    <td><?php echo $data['umur']; ?></td>
+                    <td><?php echo $data['status'];  ?></td>
+                    <td><?php echo $data['tgl_lahir'];  ?></td>
+                    <td><?php echo $data['alamat'];  ?></td>
                     <td>
                       <a href="edit.php" class="btn btn-sm btn-info">Edit</a>
                       <a href="detail.php" class="btn btn-sm btn-primary">Detail</a>
                       <button class="btn btn-sm btn-danger">Delete</button>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Abdul fajar</td>
-                    <td>Komplek Inkopad</td>
-                    <td>5</td>
-                    <td>Bujang</td>
-                    <td>25/12/01</td>
-                    <td>
-                      <a href="edit.php" class="btn btn-sm btn-info">Edit</a>
-                      <a href="detail.php" class="btn btn-sm btn-primary">Detail</a>
-                      <button class="btn btn-sm btn-danger">Delete</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Abdul Rozak</td>
-                    <td>Komplek Inkopad</td>
-                    <td>7</td>
-                    <td>Bujang</td>
-                    <td>25/12/01</td>
-                    <td>
-                      <a href="edit.php" class="btn btn-sm btn-info">Edit</a>
-                      <a href="detail.php" class="btn btn-sm btn-primary">Detail</a>
-                      <button class="btn btn-sm btn-danger">Delete</button>
-                    </td>
-                  </tr>
-              
-                  
+                   <?php } ?>
                 </table>
               </div>
               <!-- /.card-body -->
