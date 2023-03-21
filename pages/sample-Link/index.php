@@ -1,3 +1,4 @@
+
 <html>
     <head>
         <meta charset="TTF-8"> 
@@ -51,51 +52,29 @@
                             </tr>
                             </thead>
                             <tbody>
+
+                            <?php
+                                $no = 1;
+                                $sql ="SELECT * FROM tbl_users";
+                                $query = mysqli_query($db, $sql);
+
+                                while ($users = mysqli_fetch_array($query)){
+                            
+                            ?>
                             <tr>
-                                <td>1</td>
-                                <td>Yamamoni Lase</td>
-                                <td>Pengasinan</td>
-                                <td>23 Tahun</td>
-                                <td>Mahasiswa</td>
-                                <td>Hiliganoita, 01 Januari 2000</td>
+                                <td><?php echo $no; ?></td>
+                                <td><?php echo $users['nama']; ?></td>
+                                <td><?php echo $users['alamat']; ?></td>
+                                <td><?php echo $users['umur']; ?></td>
+                                <td><?php echo $users['status'];?></td>
+                                <td><?php echo $users['tgl_lahir']; ?></td>
                                 <td>
                                     <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
                                     <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
                                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete">Delete</button>
                                 </td>
                             </tr>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>2</td>
-                                <td>Lase 3</td>
-                                <td>NIAS</td>
-                                <td>23 Tahun</td>
-                                <td>Mahasiswa</td>
-                                <td>Hiliganoita, 05 Februari 2001</td>
-                                <td>
-                                    <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
-                                    <button class="btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>3</td>
-                                <td>Boy Lase</td>
-                                <td>Pengasinan</td>
-                                <td>23 Tahun</td>
-                                <td>Mahasiswa</td>
-                                <td>Hiliganoita, 02 Desember 2002</td>
-                                <td>
-                                    <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
-                                    <button class="btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
+                            <?php }?>
                             </table>
                         </div>
                         <!-- /.card-body -->
