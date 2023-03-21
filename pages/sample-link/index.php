@@ -52,45 +52,30 @@
                   </tr>
                   </thead>
                   <tbody>
+
+                  <?php
+                    $no = 1;
+                    $sql = "SELECT * FROM tbl_user";
+                    $query = mysqli_query($db, $sql);
+
+                    while ($user = mysqli_fetch_array($query)) {
+                  ?>
+
+
                   <tr>
-                    <td>1</td>
-                    <td>Achmad Rizky</td>
-                    <td>Bogor, Indonesia</td>
-                    <td>30 Tahun</td>
-                    <td>Mahasiswa</td>
-                    <td>Jakarta, 27/Oktober/1992</td>
+                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $user['nama']; ?></td>
+                    <td><?php echo $user['alamat']; ?></td>
+                    <td><?php echo $user['umur']; ?></td>
+                    <td><?php echo $user['status']; ?></td>
+                    <td><?php echo $user['tgl_lahir']; ?></td>
                     <td>
                       <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
                       <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
                       <button class="btn btn-sm btn-danger">Delete</button>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Abdul Rahman</td>
-                    <td>Kalimantan, Indonesia</td>
-                    <td>13 Tahun</td>
-                    <td>Pelajar</td>
-                    <td>Jakarta, 30/Februari/1998</td>
-                    <td>
-                    <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
-                      <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
-                      <button class="btn btn-sm btn-danger">Delete</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Hasan</td>
-                    <td>Jakarta, Indonesia</td>
-                    <td>59 Tahun</td>
-                    <td>Wiraswasta</td>
-                    <td>Jakarta, 27/Januari/1959</td>
-                    <td>
-                    <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
-                      <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
-                      <button class="btn btn-sm btn-danger">Delete</button>
-                    </td>
-                  </tr>
+                  <?php } ?>
                 </table>
               </div>
               <!-- /.card-body -->
