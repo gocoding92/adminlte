@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,58 +54,32 @@
                   </tr>
                   </thead>
                   <tbody>
+
+                  <?php
+                  $no = 1;
+                  $sql = "SELECT * FROM tbl_users";
+                  $query = mysqli_query($db, $sql);
+
+                  while ($users = mysqli_fetch_array($query)) {
+                  ?>
+
                   <tr>
-                    <td>1</td>
-                    <td>Gibran</td>
-                    <td>Depok</td>
-                    <td>22 Tahun</td>
-                    <td>Mahasiswa</td>
-                    <td>-</td>
+                    <td> <?php echo $no++; ?> </td>
+                    <td> <?php echo $users['nama']; ?> </td>
+                    <td> <?php echo $users['alamat']; ?> </td>
+                    <td> <?php echo $users['umur']; ?></td>
+                    <td> <?php echo $users['status']; ?></td>
+                    <td> <?php echo $users['tgl_lahir']; ?></td>
                   <td>
+
                   <a href="edit.php" class ="btn btn-sm btn-primary">Edit</a>
                   <a href="detail.php" class ="btn btn-sm btn-info">Detail</a>
                   <botton class ="btn btn-sm btn-danger">Delete</botton>
                   </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Arman</td>
-                    <td>Bintaro</td>
-                    <td>25 Tahun</td>
-                    <td>Mahasiswa</td>
-                    <td>-</td>
-                  <td>
-                  <a href="edit.php" class ="btn btn-sm btn-primary">Edit</a>
-                  <a href="detail.php" class ="btn btn-sm btn-info">Detail</a>
-                  <botton class ="btn btn-sm btn-danger">Delete</botton>
-                  </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Boy</td>
-                    <td>Nias</td>
-                    <td>30 Tahun</td>
-                    <td>Mahasiswa</td>
-                    <td>-</td>
-                  <td>
-                  <a href="edit.php" class ="btn btn-sm btn-primary">Edit</a>
-                  <a href="detail.php" class ="btn btn-sm btn-info">Detail</a>
-                  <botton class ="btn btn-sm btn-danger">Delete</botton>
-                  </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Aman</td>
-                    <td>Puncak</td>
-                    <td>20 Tahun</td>
-                    <td>Mahasiswa</td>
-                    <td>-</td>
-                  <td>
-                  <a href="edit.php" class ="btn btn-sm btn-primary">Edit</a>
-                  <a href="detail.php" class ="btn btn-sm btn-info">Detail</a>
-                  <botton class ="btn btn-sm btn-danger">Delete</botton>
-                  </td>
-                  </tr>
+
+                  <?php } ?>
+
                 </table>
               </div>
               <!-- /.card-body -->
