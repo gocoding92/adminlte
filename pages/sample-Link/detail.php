@@ -14,6 +14,17 @@
             <?php include '../templates/header.php'; ?>
             <!-- // side menu -->
             <?php include '../templates/menu.php'; ?>
+
+            <?php
+                if (isset($_GET['id'])){
+
+                    $id = $_GET['id'];
+
+                    $sql = "SELECT * FROM tbl_users WHERE id_users=$id ";
+                    $query = mysqli_query($db, $sql);
+                    $users = mysqli_fetch_assoc($query);
+                }
+            ?>
        
             <!-- // content -->
             <!-- Content Wrapper. Contains page content -->
@@ -45,14 +56,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Nama</label>
-                                        <p>Yamamoni Lase</p>
+                                        <p><?php echo $users['nama']?></p>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                    <div class="form-group">
                                         <label for="">Umur</label>
-                                        <p>23 Tahun</p>
+                                        <p><?php echo $users['umur']?></p>
                                    </div>
                                 </div>
                             </div>
@@ -61,13 +72,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Tanggal Lahir</label>
-                                        <p>01 Januari 2000</p>
+                                        <p><?php echo $users['tgl_lahir']?></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Status</label>
-                                        <p>Jomblo</p>
+                                        <p><?php echo $users['status']?></p>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +87,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Alamat</label>
-                                        <p>NIAS INDONESIA</p>
+                                        <p><?php echo $users['alamat']?></p>
                                     </div>
                                 </div>
                             </div>

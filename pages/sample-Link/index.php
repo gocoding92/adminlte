@@ -55,23 +55,23 @@
 
                             <?php
                                 $no = 1;
-                                $sql ="SELECT * FROM tbl_users";
+                                $sql ="SELECT * FROM tbl_users where delete_at='0'";
                                 $query = mysqli_query($db, $sql);
 
                                 while ($users = mysqli_fetch_array($query)){
                             
                             ?>
                             <tr>
-                                <td><?php echo $no; ?></td>
+                                <td><?php echo $no++; ?></td>
                                 <td><?php echo $users['nama']; ?></td>
                                 <td><?php echo $users['alamat']; ?></td>
                                 <td><?php echo $users['umur']; ?></td>
                                 <td><?php echo $users['status'];?></td>
                                 <td><?php echo $users['tgl_lahir']; ?></td>
                                 <td>
-                                    <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
-                                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete">Delete</button>
+                                    <a href="edit.php?id=<?php echo $users['id_users']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="detail.php?id=<?php echo $users['id_users']?>" class="btn btn-sm btn-info">Detail</a>
+                                    <a href="controllers/delete.php?id=<?php echo $users['id_users']; ?>"class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             <?php }?>

@@ -14,6 +14,18 @@
             <?php include '../templates/header.php'; ?>
             <!-- // side menu -->
             <?php include '../templates/menu.php'; ?>
+
+            <!-- struktur data detail data -->
+            <?php
+                if (isset($_GET['id'])){
+
+                    $id = $_GET['id'];
+
+                    $sql = "SELECT * FROM tbl_users WHERE id_users=$id ";
+                    $query = mysqli_query($db, $sql);
+                    $users = mysqli_fetch_assoc($query);
+                }
+            ?>
        
             <!-- // content -->
             <!-- Content Wrapper. Contains page content -->
@@ -39,53 +51,53 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <form action="controllers/edit.php" method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Nama</label>
+                                            <!-- hidden id -->
+                                            <input type="hidden" name="id" value="<?php echo $users['id_users']; ?>">
 
-                        
-                            <div class="row">
-                                <div class="col-md-6">
+
+                                            <input type="text" name="nama" class="form-control" value="<?php echo $users['nama']; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Nama</label>
-                                        <input type="text" class="form-control" name="nama" placeholder="masukkan Nama">
+                                            <label for="">Umur</label>
+                                            <input type="text" name="umur" class="form-control" value="<?php echo $users['umur']; ?>">
+                                    </div>
                                     </div>
                                 </div>
-
-                                <div class="col-md-6">
-                                   <div class="form-group">
-                                        <label for="">Umur</label>
-                                        <input type="number" class="form-control" name="nama" placeholder="masukkan Umur">
-                                   </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Tanggal Lahir</label>
-                                        <input type="date" class="form-control" name="tanggal_lahir" placeholder="Masukkan Tanggal Lahir">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Tanggal Lahir</label>
+                                            <input type="date" name="tgl_lahir" class="form-control" value="<?php echo $users['tgl_lahir']; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Status</label>
+                                            <input type="text" class="form-control" name="status" placeholder="Masukkan Status" value="<?php echo $users['status']; ?>">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Status</label>
-                                        <input type="text" class="form-control" name="status" placeholder="Masukkan Status">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Alamat</label>
+                                            <textarea name="alamat" class="form-control" placeholder="masukkan alamaty"><?php echo $users['alamat']; ?></textarea>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Alamat</label>
-                                        <input type="text" class="form-control" name="Alamat" placeholder="Masukkan Alamat">
-                                    </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
-                            </div>
-
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                                <button type="button" class="btn btn-primary">Submit</button>
-                            </div>
-
+                            </form>
                         </div>
                         <!-- /.card-body -->
                         </div>
