@@ -17,6 +17,22 @@
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
     
+     <?php 
+     
+     if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        $query = mysqli_query($db, "SELECT * FROM tbl_user WHERE id_user=$id");
+
+        $data = mysqli_fetch_assoc($query);
+
+     }else {
+      header("location:index.php");
+     }
+     
+     ?>
+
+
     <!-- // content tidak ada -->
     <div class="content-wrapper">
         <!-- Main content -->
@@ -47,48 +63,51 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-               <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Nama</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Masukkan nama">
+                <form action="controllers/edit.php" method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Nama</label>
+                        <input type="hidden" name="id" value="<?php echo $data['id_user'];  ?>">
+                        <input type="text" class="form-control" name="nama" placeholder="Masukkan nama" value="<?php echo $data['nama'];  ?>">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Tanggal Lahir</label>
+                        <input type="date" class="form-control" name="tgl_lahir" value="<?php echo $data['tgl_lahir'];  ?>">
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Tanggal Lahir</label>
-                    <input type="date" class="form-control" name="tanggal_lahir">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Umur</label>
+                        <input type="text" class="form-control" name="umur" placeholder="Masukkan umur" value="<?php echo $data['umur'];  ?>">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Status</label>
+                        <input type="text" class="form-control" name="status" placeholder="Masukkan status" value="<?php echo $data['status'];  ?>">
+                      </div>
+                    </div>
                   </div>
-                </div>
-               </div>
-               <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Umur</label>
-                    <input type="number" class="form-control" name="umur" placeholder="Masukkan umur">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                      <!-- <div class="form-group"> -->
+                        <label for="">Alamat</label>
+                        <textarea class="form-control" name="alamat" placeholder="Masukkan alamat"><?php echo $data['alamat'];  ?></textarea>
+                      </div>
+                      <!-- </div> -->
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Status</label>
-                    <input type="text" class="form-control" name="status" placeholder="Masukkan status">
+                  <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button> -->
+                    <button type="submit" value="submit" name="submit" class="btn btn-primary">Simpan</button>
                   </div>
-                </div>
-               </div>
-               <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                  <!-- <div class="form-group"> -->
-                    <label for="">Alamat</label>
-                    <textarea class="form-control" name="alamat" placeholder="Masukkan alamat"></textarea>
-                  </div>
-                  <!-- </div> -->
-                </div>
-               </div>
-                <div class="modal-footer">
-                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button> -->
-                  <button type="button" class="btn btn-primary">Simpan</button>
-                </div>
+                </form>
               </div>
               <!-- /.card-body -->
             </div>

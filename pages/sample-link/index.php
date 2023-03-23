@@ -61,7 +61,7 @@
                   </thead>
                   <tbody>
                      <?php                      
-                     $query = mysqli_query($db, "SELECT * FROM tbl_user");
+                     $query = mysqli_query($db, "SELECT * FROM tbl_user WHERE delete_at = '0'");
                      $no = 1;
                      while ($data = mysqli_fetch_assoc($query)) {?>
                   <tr>
@@ -72,9 +72,9 @@
                     <td><?php echo $data['tgl_lahir'];  ?></td>
                     <td><?php echo $data['alamat'];  ?></td>
                     <td>
-                      <a href="edit.php" class="btn btn-sm btn-info">Edit</a>
-                      <a href="detail.php" class="btn btn-sm btn-primary">Detail</a>
-                      <button class="btn btn-sm btn-danger">Delete</button>
+                      <a href="edit.php?id=<?php echo $data['id_user'];  ?>" class="btn btn-sm btn-info">Edit</a>
+                      <a href="detail.php?id=<?php echo $data['id_user'];  ?>" class="btn btn-sm btn-primary">Detail</a>
+                      <a href="controllers/delete.php?id=<?php echo $data['id_user'];  ?>" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                   </tr>
                    <?php } ?>

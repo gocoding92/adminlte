@@ -17,6 +17,23 @@
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
     
+    <?php 
+     
+     if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        $query = mysqli_query($db, "SELECT * FROM tbl_user WHERE id_user=$id");
+
+        $data = mysqli_fetch_assoc($query);
+
+     }else {
+      header("location:index.php");
+     }
+     
+     ?>
+
+
+
     <!-- // content tidak ada -->
     <div class="content-wrapper">
         <!-- Main content -->
@@ -51,14 +68,18 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Nama</label>
-                    <p>Abdul Rahman</p>
+                    <p>
+                       <?php echo $data['nama']; ?>
+                    </p>
                     <!-- <input type="text" class="form-control" name="nama" placeholder="Masukkan nama"> -->
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Tanggal Lahir</label>
-                    <p>25/01/01</p>
+                    <p>
+                      <?php echo $data['tgl_lahir']; ?>
+                    </p>
                     <!-- <input type="date" class="form-control" name="tanggal_lahir"> -->
                   </div>
                 </div>
@@ -67,14 +88,18 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Umur</label>
-                    <p>21 Tahun</p>
+                    <p>
+                       <?php echo $data['umur'] ?>
+                    </p>
                     <!-- <input type="number" class="form-control" name="umur" placeholder="Masukkan umur"> -->
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Status</label>
-                    <p>Begitulah</p>
+                    <p>
+                       <?php echo $data['status'] ?>
+                    </p>
                     <!-- <input type="text" class="form-control" name="status" placeholder="Masukkan status"> -->
                   </div>
                 </div>
@@ -84,7 +109,9 @@
                   <div class="form-group">
                   <!-- <div class="form-group"> -->
                     <label for="">Alamat</label>
-                    <p>Bapak Kurir?</p>
+                    <p>
+                       <?php echo $data['alamat'] ?>
+                    </p>
                     <!-- <textarea class="form-control" name="alamat" placeholder="Masukkan alamat"></textarea> -->
                   </div>
                   <!-- </div> -->
