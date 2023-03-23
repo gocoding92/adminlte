@@ -16,6 +16,17 @@
     <?php include '../templates/header.php'; ?>
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
+
+    <!-- struktur data detail data -->
+    <?php
+      if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        $sql   = "SELECT * FROM tbl_users WHERE id_users=$id ";
+        $query = mysqli_query($db, $sql);
+        $users = mysqli_fetch_assoc($query);
+      }
+    ?>
     
     <!-- // content tidak ada -->
     <div class="content-wrapper">
@@ -39,42 +50,46 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Nama</label>
-                      <input type="text" name="nama" class="form-control">
+                <form action="controllers/edit.php" method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Nama</label>
+                        <!-- hidden id -->
+                        <input type="hidden" name="id" value="<?php echo $users['id_users']; ?>">
+
+                        <input type="text" name="nama" value="<?php echo $users['nama']; ?>" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Umur</label>
+                        <input type="text" name="umur" class="form-control" value="<?php echo $users['umur']; ?>">
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Umur</label>
-                      <input type="number" name="umur" class="form-control">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Status</label>
+                        <input type="text" name="status" id="" class="form-control" value="<?php echo $users['status']; ?>">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="">Tanggal Lahir</label>
+                      <input type="date" name="tgl_lahir" value="<?php echo $users['tgl_lahir']; ?>" class="form-control">
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Status</label>
-                      <input type="text" name="status" id="" class="form-control">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="">Alamat</label>
+                      <textarea name="alamat" cols="20" rows="6" class="form-control"><?php echo $users['alamat']; ?></textarea>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <label for="">Tanggal Lahir</label>
-                    <input type="date" name="tgl_lahir" id="" class="form-control">
+                  <div class="justify-content-between my-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label for="">Alamat</label>
-                    <textarea name="alamat" cols="20" rows="6" class="form-control"></textarea>
-                  </div>
-                </div>
-                <div class="modal-footer justify-content-between my-3">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                  <button type="button" class="btn btn-primary">Submit</button>
-                </div>
+                </form>
               </div>
               <!-- /.card-body -->
             </div>

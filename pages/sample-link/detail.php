@@ -16,6 +16,16 @@
     <?php include '../templates/header.php'; ?>
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
+
+    <?php
+      if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        $sql   = "SELECT * FROM tbl_users WHERE id_users=$id ";
+        $query = mysqli_query($db, $sql);
+        $users = mysqli_fetch_assoc($query);
+      }
+    ?>
     
     <!-- // content tidak ada -->
     <div class="content-wrapper">
@@ -43,13 +53,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Nama</label>
-                      <p> Achmad Rizky </p>
+                      <p> <?php echo $users['nama']; ?> </p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Umur</label>
-                      <p> 30 Tahun </p>
+                      <p> <?php echo $users['umur']; ?> </p>
                     </div>
                   </div>
                 </div>
@@ -57,18 +67,18 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Status</label>
-                      <p> Mahasiswa </p>
+                      <p> <?php echo $users['status']; ?> </p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <label for="">Tanggal Lahir</label>
-                    <p> Jakarta, 27 Oktober 1992 </p>
+                    <p> <?php echo $users['tgl_lahir']; ?> </p>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
                     <label for="">Alamat</label>
-                    <p> Bogor, Indonesia </p>
+                    <p> <?php echo $users['alamat']; ?> </p>
                   </div>
                 </div>
               </div>
