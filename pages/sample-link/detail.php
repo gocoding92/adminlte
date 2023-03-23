@@ -18,6 +18,19 @@
 	<!-- Menu -->
 	<?php include '../templates/menu.php'; ?>
 
+  <!-- struktur data detail data -->
+  <?php
+
+  if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM tbl_users WHERE id_users=$id";
+    $query = mysqli_query($db, $sql);
+    $users = mysqli_fetch_assoc($query);
+
+    }
+  ?>
+
 	<!-- Content -->
 	<div class="content-wrapper">
 	<!-- Main content -->
@@ -45,13 +58,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Nama</label>
-                      <p> Gibran </p>
+                      <p> <?php echo $users['nama']; ?> </p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Umur</label>
-                      <p> 22 Tahun </p>
+                      <p> <?php echo $users['umur']; ?> </p>
                     </div>
                   </div>
                 </div>
@@ -60,13 +73,13 @@
                   <div class="col-md-6">
                     <div class="group">
                       <label for="">Status</label>
-                      <p> Mahasiswa </p>
+                      <p> <?php echo $users['status']; ?> </p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Tanggal Lahir</label>
-                      <p> - </p>
+                      <label for=""> Tanggal Lahir</label>
+                      <p> <?php echo $users['tgl_lahir']; ?> </p>
                     </div>
                   </div>
                 </div>
@@ -75,7 +88,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                     <label for="">Alamat</label>
-                    <p> Depok </p>
+                    <p> <?php echo $users['alamat']; ?> </p>
                   </div>
                 </div>
 
