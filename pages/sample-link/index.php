@@ -17,6 +17,9 @@
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
     
+  <!--struktur data detail data-->
+
+
     <!-- // content tidak ada -->
     <div class="content-wrapper">
         <!-- Main content -->
@@ -55,7 +58,7 @@
 
                   <?php
                     $no = 1;
-                    $sql = "SELECT * FROM tbl_user";
+                    $sql = "SELECT * FROM tbl_user WHERE delete_at='0'";
                     $query = mysqli_query($db, $sql);
 
                     while ($user = mysqli_fetch_array($query)) {
@@ -70,9 +73,9 @@
                     <td><?php echo $user['status']; ?></td>
                     <td><?php echo $user['tgl_lahir']; ?></td>
                     <td>
-                      <a href="edit.php" class="btn btn-sm btn-primary">Edit</a>
-                      <a href="detail.php" class="btn btn-sm btn-info">Detail</a>
-                      <button class="btn btn-sm btn-danger">Delete</button>
+                      <a href="edit.php?id=<?php echo $user['id_user']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                      <a href="detail.php?id=<?php echo $user['id_user']; ?>" class="btn btn-sm btn-info">Detail</a>
+                      <a href="controllers/delete.php?id=<?php echo $user['id_user']; ?>" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                   </tr>
                   <?php } ?>

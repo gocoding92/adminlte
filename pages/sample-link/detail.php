@@ -17,6 +17,18 @@
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
     
+    <?php
+
+    if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM tbl_user WHERE id_user=$id ";
+    $query = mysqli_query($db, $sql);
+    $user = mysqli_fetch_assoc($query);
+
+  }
+  
+  ?>
     <!-- // content tidak ada -->
     <div class="content-wrapper">
         <!-- Main content -->
@@ -44,13 +56,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Nama</label>
-                      <p> Arman Suryadinata </p>
+                      <p> <?php echo $user['nama']; ?> </p>
                   </div>
                 </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Umur</label>
-                      <p> 32 Tahun </p>
+                      <p> <?php echo $user['umur']; ?> </p>
                   </div>
                 </div>
               </div>
@@ -58,13 +70,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Status</label>
-                      <p> Mahasiswa </p>
+                      <p> <?php echo $user['status']; ?> </p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Tanggal lahir</label>
-                      <p> 22 oktober 1993 </P>
+                      <p> <?php echo $user['tgl_lahir']; ?> </P>
                   </div>
                 </div>
               </div>
@@ -72,7 +84,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Alamat</label>
-                      <p> Bintaro Raya no.1 Jakarta selatan 12320 </p>
+                      <p> <?php echo $user['alamat']; ?> </p>
                     </div>
                   </div>
               </div>

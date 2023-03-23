@@ -17,6 +17,19 @@
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
     
+    <?php
+
+    if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM tbl_user WHERE id_user=$id ";
+    $query = mysqli_query($db, $sql);
+    $user = mysqli_fetch_assoc($query);
+
+  }
+  
+  ?>
+
     <!-- // content tidak ada -->
     <div class="content-wrapper">
         <!-- Main content -->
@@ -39,48 +52,51 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-               
-              <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Nama</label>
-                      <input type="text" name="nama" class="form-control">
-                  </div>
-                </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Umur</label>
-                      <input type="text" name="umur" class="form-control">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Status</label>
-                      <input type="text" name="status" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Tanggal lahir</label>
-                      <input type="date" name="tgl_lahir" id="" class="form-control">
-                  </div>
-                </div>
-              </div>
+               <form action="controllers/edit.php" method="post">
                 <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Alamat</label>
-                      <textarea name="alamat" cols="20" rows="6" class="form-control"></textarea>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Nama</label>
+
+                       <input type="hidden" name="id" value="<?php echo $user['id_user']; ?>">
+                        <input type="text" name="nama" class="form-control" value="<?php echo $user['nama']; ?>">
                     </div>
                   </div>
-              </div>
-                <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default">Tutup</button>
-                  <button type="button" class="btn btn-primary">Submit</button>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Umur</label>
+                        <input type="text" name="umur" class="form-control" value="<?php echo $user['umur']; ?>">
+                    </div>
                   </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Status</label>
+                        <input type="text" name="status" class="form-control" value="<?php echo $user['status']; ?>">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Tanggal lahir</label>
+                        <input type="date" name="tgl_lahir" id="" class="form-control" value="<?php echo $user['tgl_lahir']; ?>">
+                    </div>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Alamat</label>
+                        <textarea name="alamat" cols="20" rows="6" class="form-control"><?php echo $user['alamat']; ?></textarea>
+                      </div>
+                    </div>
+                </div>
+                  <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                </form>
               </div>
               <!-- /.card-body -->
             </div>
