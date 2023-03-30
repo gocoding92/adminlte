@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="TTF-8"> 
-        <title>Sampel Link</title>
+        <title>Dashboard</title>
 
         <!--link-rel-->
         <?php include '../templates/link-rel.php'; ?>
@@ -28,7 +28,7 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="card-title">Data Sampel Link</h3>
+                                    <h3 class="card-title">Dashboard</h3>
                                 </div>
                                 <div class="col-md-6">
                                     <a href="create.php" class="btn btn-sm btn-primary float-right">
