@@ -75,7 +75,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="">Password</label>
-                        <input type="date" class="form-control" name="password" value="<?php echo $data['password'];  ?>">
+                        <input type="text" class="form-control" name="password" value="<?php echo $data['password'];  ?>">
                       </div>
                     </div>
                   </div>

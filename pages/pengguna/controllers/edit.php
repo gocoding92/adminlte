@@ -9,14 +9,14 @@ include '../../../config/koneksi/koneksi.php';
     $nama_lengkap = $_POST['umur'];
     $level = $_POST['level'];
 
-    $sql = "UPDATE tbl_user SET
+    $sql = "UPDATE pengguna SET
                                 username= '$username',
                                 password= '$password',
                                 nama_lengkap= '$nama_lengkap',
                                 level= '$level'
                             
                                 WHERE 
-                                id_user = '$id'";
+                                id_pengguna = '$id'";
                                 
     $query = mysqli_query($db, $sql);
                                 
