@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sample Link</title>
+	<title>Pengguna</title>
 
 	<!-- Link-rel -->
 	<?php include '../templates/link-rel.php'; ?>
@@ -30,7 +30,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Data Sample Link</h3>
+                    <h3 class="card-title">Data Pengguna</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="create.php" class="btn btn-sm btn-primary float-right">
@@ -44,12 +44,11 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Nomor</th>
-                    <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Umur</th>
-                    <th>Status</th>
-                    <th>Tanggal Lahir</th>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Nama Lengkap</th>
+                    <th>Level</th>
+                    <th>Waktu Input</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -57,7 +56,7 @@
 
                   <?php
                   $no = 1;
-                  $sql = "SELECT * FROM tbl_users WHERE delete_at = '0'";
+                  $sql = "SELECT * FROM tbl_pengguna WHERE delete_at = '0'";
                   $query = mysqli_query($db, $sql);
 
                   while ($users = mysqli_fetch_array($query)) {
@@ -65,16 +64,15 @@
 
                   <tr>
                     <td> <?php echo $no++; ?> </td>
-                    <td> <?php echo $users['nama']; ?> </td>
-                    <td> <?php echo $users['alamat']; ?> </td>
-                    <td> <?php echo $users['umur']; ?></td>
-                    <td> <?php echo $users['status']; ?></td>
-                    <td> <?php echo $users['tgl_lahir']; ?></td>
+                    <td> <?php echo $users['username']; ?> </td>
+                    <td> <?php echo $users['nama_lengkap']; ?></td>
+                    <td> <?php echo $users['level']; ?></td>
+                    <td> <?php echo $users['created_time']; ?></td>
                   <td>
 
-                  <a href="edit.php?id=<?php echo $users['id_users']; ?>" class ="btn btn-sm btn-primary">Edit</a>
-                  <a href="detail.php?id=<?php echo $users['id_users']; ?>" class ="btn btn-sm btn-info">Detail</a>
-                  <a href="controllers/delete.php?id=<?php echo $users['id_users']; ?>" class ="btn btn-sm btn-danger">Delete</a>
+                  <a href="edit.php?id=<?php echo $users['id_pengguna']; ?>" class ="btn btn-sm btn-primary">Edit</a>
+                  <a href="detail.php?id=<?php echo $users['id_pengguna']; ?>" class ="btn btn-sm btn-info">Detail</a>
+                  <a href="controllers/delete.php?id=<?php echo $users['id_pengguna']; ?>" class ="btn btn-sm btn-danger">Delete</a>
                   </td>
                   </tr>
 
@@ -94,7 +92,7 @@
       </div>
     </section>
 
-    <!-- Footer -->
+	<!-- Footer -->
 	<?php include '../templates/footer.php'; ?>
 
 	<!-- Script -->

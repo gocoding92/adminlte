@@ -14,7 +14,7 @@
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Gibran</a>
+          <a href="#" class="d-block">M. Gibran Soputra</a>
         </div>
       </div>
 
@@ -65,6 +65,46 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Sample Link
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../obat" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Master Data Obat
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../pengguna" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Pengguna
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../karyawan" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Karyawan
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../unit" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Unit
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../diagnosa" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Diagnosa
               </p>
             </a>
           </li>
