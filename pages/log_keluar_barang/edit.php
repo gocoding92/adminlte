@@ -18,16 +18,15 @@
     <?php include '../templates/menu.php'; ?>
     
     <?php
-        $sql ="SELECT * FROM tbl_jenis_barang WHERE delete_at='0'";
-        $query_jenis_barang = mysqli_query($db, $sql); 
 
-        if (isset($_GET['id'])) {
-          $id = $_GET['id'];
+    if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
-          $sql = "SELECT * FROM tbl_barang WHERE id_barang=$id ";
-          $query = mysqli_query($db, $sql);
-          $user = mysqli_fetch_assoc($query);
-        }
+    $sql = "SELECT * FROM tbl_barang WHERE id_barang=$id ";
+    $query = mysqli_query($db, $sql);
+    $user = mysqli_fetch_assoc($query);
+
+  }
   
   ?>
 
@@ -77,22 +76,19 @@
                       </div>
                     </div>
                     <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="">Deskripsi</label>
-                        <textarea name="deskripsi" class="form-control"><?php echo $user['deskripsi']; ?></textarea>
-                    </div>
+                    <div class="form-group">
+                        <label for="">Jenis Barang</label>
+                        <input type="text" name="id_jenis_barang" class="form-control" value="<?php echo $user['id_jenis_barang']; ?>">
+                      </div>
                   </div>
                 </div>
                   <div class="row">
                     <div class="col-md-6">
+                      
                       <div class="form-group">
-                        <label for="">Jenis Barang</label>
-                        <select name="cars" class="form-control">
-                          <option value="">--Pilih salah satu--</option>
-                          <?php while ($jenis_barang = mysqli_fetch_array($query_jenis_barang)) { ?>
-                            <option value="<?php echo $jenis_barang['id_jenis_barang']?>"><?php echo $jenis_barang['nama_jenis'] ?></option>
-                          <?php }?>
-                      </div>
+                        <label for="">Deskripsi</label>
+                        <textarea name="deskripsi" class="form-control"><?php echo $user['deskripsi']; ?></textarea>
+                    </div>
                     </div>
                 </div>
                   <div class="modal-footer justify-content-between">

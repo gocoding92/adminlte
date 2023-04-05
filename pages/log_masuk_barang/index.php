@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Master Data Barang</title>
+    <title>Tabel Log History Masuk Barang</title>
 
     <!-- // link-rel -->
     <?php include '../templates/link-rel.php'; ?>
@@ -31,7 +31,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Master Data Barang</h3>
+                    <h3 class="card-title">Tabel Log History Masuk Barang</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="create.php" class="btn btn-sm btn-primary float-right">
@@ -46,11 +46,12 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Jenis Barang</th>
+                    <th>Barang</th>
                     <th>Harga</th>
                     <th>Qty</th>
                     <th>Deskripsi</th>
                     <th>Jenis Barang</th>
+                    <th>Waktu Input</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -58,9 +59,10 @@
 
                   <?php
                     $no = 1;
-                    $sql = "SELECT * FROM tbl_barang AS a 
-                            INNER JOIN tbl_jenis_barang AS b ON a.id_jenis_barang = b.id_jenis_barang 
-                            WHERE a.delete_at='0'
+                    $sql = "SELECT * FROM tbl_log_history_barang AS a 
+                            INNER JOIN tbl_barang AS b ON a.id_barang = b.id_barang 
+                            INNER JOIN tbl_jenis_barang AS c ON a.id_barang = b.id_barang 
+                            WHERE a.delete_at='0' AND a.type_barang='Masuk'  
                           ";
                     $query = mysqli_query($db, $sql);
 
@@ -75,10 +77,11 @@
                     <td><?php echo $user['qty']; ?></td>
                     <td><?php echo $user['deskripsi']; ?></td>
                     <td><?php echo $user['nama_jenis']; ?></td>
+                    <td><?php echo $user['created_time']; ?></td>
                     <td>
                       <a href="edit.php?id=<?php echo $user['id_barang']; ?>" class="btn btn-sm btn-primary">Edit</a>
                       <!-- <a href="detail.php?id=<?php echo $user['id_barang']; ?>" class="btn btn-sm btn-info">Detail</a> -->
-                      <a href="controllers/delete.php?id=<?php echo $user['id_barang']; ?>" class="btn btn-sm btn-danger">Delete</a>
+                      <!-- <a href="controllers/delete.php?id=<?php //echo $user['id_barang']; ?>" class="btn btn-sm btn-danger">Delete</a> -->
                     </td>
                   </tr>
                   <?php } ?>
