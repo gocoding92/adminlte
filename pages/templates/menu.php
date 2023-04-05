@@ -63,6 +63,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="../rekomendasi_karyawan" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Rekomendasi Karyawan
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="../data_karyawan" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -75,7 +84,7 @@
             <a href="../data_toko" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Data Toko
+               Data Toko
               </p>
             </a>
           </li>
@@ -84,7 +93,7 @@
             <a href="../data_bobot" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Data Bobot
+               Data Bobot
               </p>
             </a>
           </li>
