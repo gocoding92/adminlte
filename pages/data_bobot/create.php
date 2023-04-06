@@ -39,52 +39,30 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-
-                        
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Nama</label>
-                                        <input type="text" class="form-control" name="nama" placeholder="masukkan Nama">
+                            <form action="controllers/create.php" method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Nama Bobot</label>
+                                            <input type="text" class="form-control" name="nama_bobot" placeholder="masukkan Nama Bobot">
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                   <div class="form-group">
-                                        <label for="">Umur</label>
-                                        <input type="number" class="form-control" name="nama" placeholder="masukkan Umur">
-                                   </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
+                                <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Tanggal Lahir</label>
-                                        <input type="date" class="form-control" name="tanggal_lahir" placeholder="Masukkan Tanggal Lahir">
+                                            <label for="">Nilai</label>
+                                            <input type="number" class="form-control" name="nilai" placeholder="masukkan nilai">
+                                    </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Status</label>
-                                        <input type="text" class="form-control" name="status" placeholder="Masukkan Status">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Alamat</label>
-                                        <input type="text" class="form-control" name="Alamat" placeholder="Masukkan Alamat">
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                                <button type="button" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
+                        </form>
 
                         </div>
                         <!-- /.card-body -->
