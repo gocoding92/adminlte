@@ -40,7 +40,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-
+              <form action="controllers/create.php" method="post">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
@@ -51,7 +51,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Nama Lengkap</label>
-                      <input type="number" name="nama_lengkap" class="form-control">
+                      <input type="text" name="nama_lengkap" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -67,8 +67,10 @@
                 </div>
               </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-primary">Simpan</button>
+              <button type="reset" class="btn btn-warning">Reset</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
+            </form>
             </div>
               <!-- /.card-body -->
             </div>

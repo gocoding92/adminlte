@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Create Data Karyawan</title>
+	<title>Create Diagnosa</title>
 
 	<!-- Link-rel -->
 	<?php include '../templates/link-rel.php'; ?>
@@ -29,7 +29,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Create Data Karyawan</h3>
+                    <h3 class="card-title">Create Data Diagnosa</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="index.php" class="btn btn-sm btn-primary float-right">
@@ -41,65 +41,20 @@
               <!-- /.card-header -->
               <div class="card-body">
               <form action="controllers/create.php" method="post">
-              <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Username</label>
-                      <input type="text" name="username" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Nama Lengkap</label>
-                      <input type="text" name="nama_lengkap" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="group">
-                      <label for="">Tempat, Tanggal Lahir</label>
-                      <input type="date" name="tempat_tanggal_lahir" class="form-control">
+                    <div class="form-group">
+                      <label for="">Code Diagnosa</label>
+                      <input type="text" name="code_diagnosa" class="form-control">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Umur</label>
-                      <input type="text" name="umur" class="form-control">
+                      <label for="">Nama Diagnosa</label>
+                      <input type="text" name="nama_diagnosa" class="form-control">
                     </div>
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="group">
-                      <label for="">Awal Kerja</label>
-                      <input type="text" name="awal_kerja" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Level</label>
-                      <input type="text" name="level" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="group">
-                      <label for="">Jabatan</label>
-                      <input type="text" name="jabatan" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="">Alamat</label>
-                    <input type="text" name="alamat" class="form-control">
-                  </div>
-                </div>
-              </div>
 
               </div>
             <div class="modal-footer justify-content-between">

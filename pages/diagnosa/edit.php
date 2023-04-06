@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sample Link Create</title>
+	<title>Edit Diagnosa</title>
 
 	<!-- Link-rel -->
 	<?php include '../templates/link-rel.php'; ?>
@@ -18,6 +18,19 @@
 	<!-- Menu -->
 	<?php include '../templates/menu.php'; ?>
 
+  <!-- struktur data detail data -->
+  <?php
+
+  if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM tbl_diagnosa WHERE id_diagnosa=$id";
+    $query = mysqli_query($db, $sql);
+    $users = mysqli_fetch_assoc($query);
+
+    }
+  ?>
+
 	<!-- Content -->
 	<div class="content-wrapper">
 	<!-- Main content -->
@@ -29,7 +42,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Create Data Obat</h3>
+                    <h3 class="card-title">Edit Data Diagnosa</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="index.php" class="btn btn-sm btn-primary float-right">
@@ -40,37 +53,31 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <form action="controllers/create.php" method="post">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Nama Obat</label>
-                      <input type="text" name="nama_obat" class="form-control">
+                <form action="controllers/edit.php" method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Code Diagnosa</label>
+                        <!-- hidden id -->
+                        <input type="hidden" name="id" value="<?php echo $users['id_diagnosa']; ?>">
+
+                        <input type="text" name="code_diagnosa" class="form-control" value="<?php echo $users['code_diagnosa']; ?>">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Nama Diagnosa</label>
+                        <input type="text" name="nama_diagnosa" class="form-control" value="<?php echo $users['nama_diagnosa']; ?>">
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Qty</label>
-                      <input type="number" name="qty" class="form-control">
-                    </div>
-                  </div>
+
                 </div>
-                
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="group">
-                      <label for="">Harga</label>
-                      <input type="text" name="harga" class="form-control">
-                    </div>
+                  <div class="modal-footer justify-content-between">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                   </div>
-                </div>
+                </form>
               </div>
-            <div class="modal-footer justify-content-between">
-              <button type="reset" class="btn btn-warning">Reset</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-            </form>
-            </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
