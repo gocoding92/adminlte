@@ -48,6 +48,9 @@
           </div>
           <!-- /.col -->
         </div>
+        <a href="registrasi.php">
+          Registrasi
+        </a>
       </form>
       <!-- <p class="mb-1">
         <a href="forgot-password.html">I forgot my password</a>
