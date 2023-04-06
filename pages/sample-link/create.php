@@ -39,7 +39,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-               
+               <form action="controllers/create.php" method="post">
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
@@ -64,7 +64,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Tanggal lahir</label>
-                      <input type="date" name="tgl_lahir" id="" class="form-control">
+                      <input type="date" name="tgl_lahir" class="form-control">
                   </div>
                 </div>
               </div>
@@ -77,9 +77,10 @@
                   </div>
               </div>
                 <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default">Tutup</button>
-                  <button type="button" class="btn btn-primary">Submit</button>
+                  <button type="reset" class="btn btn-default">Tutup</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
+                </form>
                 </div>
               </div>
               <!-- /.card-body -->

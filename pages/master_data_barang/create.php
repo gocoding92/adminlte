@@ -16,6 +16,11 @@
     <?php include '../templates/header.php'; ?>
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
+
+    <?php
+        $sql ="SELECT * FROM tbl_barang WHERE delete_at='0'";
+        $query_jenis_barang = mysqli_query($db, $sql); 
+  ?>
     
     <!-- // content tidak ada -->
     <div class="content-wrapper">
@@ -28,7 +33,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Data Sample Link Create</h3>
+                    <h3 class="card-title">Master Data Barang</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="index.php" class="btn btn-sm btn-primary float-right">
@@ -39,46 +44,51 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-               
+               <form action="controllers/create.php" method="post">
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Nama</label>
-                      <input type="text" name="nama" class="form-control">
+                      <label for="">Nama Barang</label>
+                      <input type="text" name="nama_barang" class="form-control">
                   </div>
                 </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Umur</label>
-                      <input type="text" name="umur" class="form-control">
+                      <label for="">Harga</label>
+                      <input type="text" name="harga" class="form-control">
                   </div>
                 </div>
               </div>
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Status</label>
-                      <input type="text" name="status" class="form-control">
+                      <label for="">qty</label>
+                      <input type="text" name="qty" class="form-control">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Tanggal lahir</label>
-                      <input type="date" name="tgl_lahir" id="" class="form-control">
+                      <label for="">Deskripsi</label>
+                      <input type="text" name="deskripsi" class="form-control">
                   </div>
                 </div>
               </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Alamat</label>
-                      <textarea name="alamat" cols="20" rows="6" class="form-control"></textarea>
-                    </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Jenis Barang</label>
+                    <select name="id_jenis_barang" class="form-control">
+                      <option value="">--Pilih salah satu--</option>
+                      <?php while ($jenis_barang = mysqli_fetch_array($query_jenis_barang)) { ?>
+                        <option value="<?php echo $jenis_barang['id_jenis_barang']?>"><?php echo $jenis_barang['id_jenis_barang'] ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
+                </div>
               </div>
                 <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default">Tutup</button>
-                  <button type="button" class="btn btn-primary">Submit</button>
+                  <button type="reset" class="btn btn-default">Tutup</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </div>
               </div>
