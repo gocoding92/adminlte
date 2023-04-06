@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sample Link Create</title>
+    <title>Sample Link Detail</title>
 
     <!-- // link-rel -->
     <?php include '../templates/link-rel.php'; ?>
@@ -16,6 +16,16 @@
     <?php include '../templates/header.php'; ?>
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
+
+    <?php
+      if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        $sql   = "SELECT * FROM tbl_users WHERE id_users=$id ";
+        $query = mysqli_query($db, $sql);
+        $users = mysqli_fetch_assoc($query);
+      }
+    ?>
     
     <!-- // content tidak ada -->
     <div class="content-wrapper">
@@ -28,7 +38,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Data Sample Link Create</h3>
+                    <h3 class="card-title">Data Sample Link Detail</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="index.php" class="btn btn-sm btn-primary float-right">
@@ -39,44 +49,38 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="controllers/create.php" method="post">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="">Nama</label>
-                        <input type="text" name="nama" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="">Umur</label>
-                        <input type="number" name="umur" class="form-control">
-                      </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Nama</label>
+                      <p> <?php echo $users['nama']; ?> </p>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="">Status</label>
-                        <input type="text" name="status" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="">Tanggal Lahir</label>
-                      <input type="date" name="tgl_lahir" class="form-control">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Umur</label>
+                      <p> <?php echo $users['umur']; ?> </p>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label for="">Alamat</label>
-                      <textarea name="alamat" cols="20" rows="6" class="form-control"></textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Status</label>
+                      <p> <?php echo $users['status']; ?> </p>
                     </div>
                   </div>
-                  <div class="modal-footer justify-content-between my-3">
-                    <button type="reset" class="btn btn-default">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                  <div class="col-md-6">
+                    <label for="">Tanggal Lahir</label>
+                    <p> <?php echo $users['tgl_lahir']; ?> </p>
                   </div>
-                </form>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="">Alamat</label>
+                    <p> <?php echo $users['alamat']; ?> </p>
+                  </div>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
