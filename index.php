@@ -17,16 +17,16 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index2.html"><b>KEMNAKER RI</b></a>
+    <a href="index2.html"><b>Sistem Akademik</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Login</p>
 
-      <form action="index3.html" method="post">
+      <form action="aksi_login.php" method="post" onSubmit="return validasi()">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" placeholder="Username" name="username" id="username" required autofocus>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="password" id="password" required autofocus>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -44,7 +44,7 @@
         <div class="row">
           <!-- /.col -->
           <div class="col-12">
-            <a href="pages/sample-link" class="btn btn-primary btn-block">Sign In</a>
+            <button class="btn btn-primary btn-block" type="submit" name="submit" value="submit">Submit</button>
           </div>
           <!-- /.col -->
         </div>
@@ -70,5 +70,18 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<script src="text/javascript">
+  function validasi() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if(username != "" && password != ""){
+      return true;
+    }else{
+      alert("Username dan Password harus diisi!");
+      return false;
+    }
+  }
+</script>
 </body>
 </html>

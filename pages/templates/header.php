@@ -16,9 +16,20 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="../../index.php" role="button">
-          <i class="fas fa-sign-out-alt"></i>
-        </a>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-users"></i>
+            <!-- Profil  -->
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <a class="nav-link" href="../profil" role="button">
+              <i class="fas fa-users"> Profil</i>
+            </a>
+            <a class="nav-link" href="../../index.php" role="button">
+              <i class="fas fa-sign-out-alt"> Logout</i>
+            </a>
+          </div>
+        </div>
       </li>
     </ul>
   </nav>
