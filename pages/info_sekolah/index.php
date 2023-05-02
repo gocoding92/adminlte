@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pengguna</title>
+    <title>Info Sekolah</title>
 
     <!-- // link-rel -->
     <?php include '../templates/link-rel.php'; ?>
@@ -28,7 +28,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Data pengguna</h3>
+                    <h3 class="card-title">Data Daftar karyawan</h3>
                   </div>
                   <div class="col-md-6">
                     <!-- <button class="btn btn-sm btn-primary float-right">
@@ -51,31 +51,28 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Nama Lengkap</th>
-                    <th>Level</th>
-                    <th>Waktu Input</th>
+                    <th>Umur</th>
+                    <th>Status</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Alamat</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
                      <?php                      
-                     $query = mysqli_query($db, "SELECT * FROM pengguna WHERE delete_at = '0'");
+                     $query = mysqli_query($db, "SELECT * FROM tbl_user WHERE delete_at = '0'");
                      $no = 1;
-                     while ($data = mysqli_fetch_assoc($query)) { ?>
+                     while ($data = mysqli_fetch_assoc($query)) {?>
                   <tr>
                     <td><?php echo $no++;?></td>
-                    <td><?php echo $data['username'];  ?></td>
-                    <td><?php echo $data['password'];  ?></td>
-                    <td><?php echo $data['nama_lengkap']; ?></td>
-                    <td><?php echo $data['level'];  ?></td>
-                    <td><?php echo $data['create_time'];  ?></td>
+                    <td><?php echo $data['umur']; ?></td>
+                    <td><?php echo $data['status'];  ?></td>
+                    <td><?php echo $data['tgl_lahir'];  ?></td>
+                    <td><?php echo $data['alamat'];  ?></td>
                     <td>
-                      <a href="edit.php?id=<?php echo $data['id_pengguna'];  ?>" class="btn btn-sm btn-info">Edit</a>
-                      <a href="detail.php?id=<?php echo $data['id_pengguna'];  ?>" class="btn btn-sm btn-primary">Detail</a>
-                      <a href="controllers/delete.php?id=<?php echo $data['id_pengguna'];  ?>" class="btn btn-sm btn-danger">Delete</a>
-                      <a href="../profil/index.php?id=<?php echo $data['id_pengguna'];  ?>" class="btn btn-sm btn-danger">Delete</a>
+                      <a href="edit.php?id=<?php echo $data['id_user'];  ?>" class="btn btn-sm btn-info">Edit</a>
+                      <a href="detail.php?id=<?php echo $data['id_user'];  ?>" class="btn btn-sm btn-primary">Detail</a>
+                      <a href="controllers/delete.php?id=<?php echo $data['id_user'];  ?>" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                   </tr>
                    <?php } ?>

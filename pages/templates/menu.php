@@ -82,23 +82,72 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="../data_rekrutmen" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Data Rekrutmen
               </p>
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a href="../pengguna" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 Pengguna
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-database"></i>
+              <p>
+                Master Data
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../daftar_karyawan" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Karyawan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../kelas" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kelas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../mata_pelajaran" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mata Pelajaran</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../info_sekolah" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Info Sekolah</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../siswa" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Siswa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../jabatan" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jabatan</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -16,6 +16,7 @@ $password = md5($_POST['password']);
     $_SESSION['status'] = "login";
     header("location: pages/sample-link");
  }else{
+  echo "data tidak ditemukan";
    header("location: index.php");
  }
  
