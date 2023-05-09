@@ -52,59 +52,83 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <form action="controllers/edit.php" method="post">
-                                <div class="row">
+                                 <!-- hidden id -->
+                                 <input type="hidden" name="id" value="<?php echo $users['id_karyawan']; ?>">
+
+                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Username</label>
-                                            <!-- hidden id -->
-                                            <input type="hidden" name="id" value="<?php echo $users['id_karyawan']; ?>">
-
-
-                                            <input type="text" name="username" class="form-control" value="<?php echo $users['username']; ?>">
+                                            <label for="">Nama Lengkap</label>
+                                            <input type="text" class="form-control" name="nama_lengkap" placeholder="Masukkan Nama Lengkap" value="<?php echo $users['nama_lengkap']; ?>">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                     <div class="form-group">
-                                            <label for="">Nama Lengkap</label>
-                                            <input type="text" name="nama_lengkap" class="form-control" value="<?php echo $users['nama_lengkap']; ?>">
+                                            <label for="">Tanggal Lahir</label>
+                                            <input type="text" class="form-control" name="tempat_tanggal_lahir" placeholder="Masukkan TTL" value="<?php echo $users['tempat_tanggal_lahir']; ?>">
                                     </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="">Tempat Tanggal Lahir</label>
-                                            <input type="text" name="tempat_tanggal_lahir" class="form-control" value="<?php echo $users['tempat_tanggal_lahir']; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="">Level</label>
-                                            <input type="text" class="form-control" name="level" placeholder="Masukkan Status" value="<?php echo $users['level']; ?>">
-                                        </div>
-                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Umur</label>
-                                            <input type="text" class="form-control" name="umur" placeholder="Masukkan Status" value="<?php echo $users['umur']; ?>">
+                                            <input type="text" class="form-control" name="umur" placeholder="Masukkan umur" value="<?php echo $users['tempat_tanggal_lahir']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Awal Kerja</label>
-                                            <input type="text" class="form-control" name="awal_kerja" placeholder="Masukkan Status" value="<?php echo $users['awal_kerja']; ?>">
+                                            <label for="">Jenis Kelamin</label>
+                                            <select name="jenis_kelamin" id="" class="form-control"> 
+                                                <option value="0">Silahkan Pilih</option>
+                                                <option <?php echo $users['jenis_kelamin'] == 'Laki-Laki' ? 'selected' : null ?> value="Laki-Laki">Laki - Laki</option>
+                                                <option <?php echo $users['jenis_kelamin'] == 'Perempuan' ? 'selected' : null ?> value="Perempuan">Perempuan</option>
+                                            </select> 
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Alamat</label>
-                                            <textarea name="alamat" class="form-control" placeholder="masukkan alamat"><?php echo $users['alamat']; ?></textarea>
+                                            <label for="">Awal Kerja</label>
+                                            <input type="date" class="form-control" name="awal_kerja" value="<?php echo $users['awal_kerja']; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <label for="">Nomor HP</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="nomor_hp" placeholder="Masukkan No.Hp" value="<?php echo $users['nomor_hp']; ?>">
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Status</label>
+                                            <input type="text" class="form-control" name="status" value="<?php echo $users['status']; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Alamat Asal</label>
+                                            <textarea name="alamat_asal" rows="1" class="form-control" placeholder="Masukkan Alamat" ><?php echo $users['alamat_asal']; ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Alamat Sekarang</label>
+                                            <textarea name="alamat_sekarang" rows="1" class="form-control" placeholder="Masukkan Alamat"><?php echo $users['alamat']; ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                                     <button type="submit" class="btn btn-primary">Submit</button>

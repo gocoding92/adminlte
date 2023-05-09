@@ -42,13 +42,15 @@
                             <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Username</th>
-                                <th>Nama</th>
+                                <th>Nama Lengkap</th>
                                 <th>TTL</th>
-                                <th>Level</th>
                                 <th>Umur</th>
+                                <th>Jenis Kelamin</th>
                                 <th>Awal Kerja</th>
-                                <th>Alamat</th>
+                                <th>No HP</th>
+                                <th>Status</th>
+                                <th>Alamat Asal</th>
+                                <th>Alamat Sekarang</th>
                                 <th>Waktu Input</th>
                                 <th>Aksi</th>
                             </tr>
@@ -65,12 +67,14 @@
                             ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><?php echo $users['username']; ?></td>
                                 <td><?php echo $users['nama_lengkap']; ?></td>
                                 <td><?php echo $users['tempat_tanggal_lahir']; ?></td>
-                                <td><?php echo $users['level'];?></td>
                                 <td><?php echo $users['umur'];?></td>
+                                <td><?php echo $users['jenis_kelamin'];?></td>
                                 <td><?php echo $users['awal_kerja'];?></td>
+                                <td><?php echo $users['nomor_hp'];?></td>
+                                <td><?php echo $users['status'];?></td>
+                                <td><?php echo $users['alamat_asal'];?></td>
                                 <td><?php echo $users['alamat'];?></td>
                                 <td><?php echo $users['created_time'];?></td>
                                 <td>

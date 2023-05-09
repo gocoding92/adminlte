@@ -31,7 +31,7 @@
                                     <h3 class="card-title">Data Rekomendasi Karyawan</h3>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="create.php" class="btn btn-sm btn-primary float-right">
+                                    <a href="penilaian.php" class="btn btn-sm btn-primary float-right">
                                         <i class="fa fa-plus"></i>&nbsp; Tambah Data
                                     </a>
                                 </div>

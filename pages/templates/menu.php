@@ -99,6 +99,24 @@
           </li>
 
           <li class="nav-item">
+            <a href="../kriteria" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Kriteria
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="../sub_kriteria" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Sub Kriteria
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="../sample-modal" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
