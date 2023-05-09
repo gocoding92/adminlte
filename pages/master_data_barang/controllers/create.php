@@ -9,7 +9,8 @@ if (isset($_POST)){
     $deskripsi         = $_POST['deskripsi'];
     $id_jenis_barang   = $_POST['id_jenis_barang'];
 
-    $sql = "INSERT INTO tbl_barang (nama_barang, harga, qty, deskripsi, id_jenis_barang) 
+    $sql = "INSERT INTO t
+    bl_barang (nama_barang, harga, qty, deskripsi, id_jenis_barang) 
     VALUES ('$nama_barang', '$harga', '$qty', '$deskripsi', '$id_jenis_barang')";
     
  $query   = mysqli_query($db, $sql);
