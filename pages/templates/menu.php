@@ -84,10 +84,10 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../master_data_barang" class="nav-link">
+            <a href="../master_item_barang" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Master Data Barang
+                Master Item Barang
               </p>
             </a>
           </li>
@@ -96,6 +96,54 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Master Data Jenis Barang
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../Category  " class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Category 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../Group  " class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Group 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../Departemen  " class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Departemen 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../Division  " class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Division 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../Line  " class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Line 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../Supplier  " class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Supplier 
               </p>
             </a>
           </li>

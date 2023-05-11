@@ -33,7 +33,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Master Data Barang</h3>
+                    <h3 class="card-title">Master Item Barang</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="index.php" class="btn btn-sm btn-primary float-right">
@@ -48,13 +48,13 @@
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Nama Barang</label>
+                      <label for="">Short SKU</label>
                       <input type="text" name="nama_barang" class="form-control">
                   </div>
                 </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Harga</label>
+                      <label for="">Description</label>
                       <input type="text" name="harga" class="form-control">
                   </div>
                 </div>
@@ -62,13 +62,83 @@
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">qty</label>
+                      <label for="">PLU Description</label>
                       <input type="text" name="qty" class="form-control">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Deskripsi</label>
+                      <label for="">Line</label>
+                      <input type="text" name="deskripsi" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Division</label>
+                      <input type="text" name="qty" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Group</label>
+                      <input type="text" name="deskripsi" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Departemen</label>
+                      <input type="text" name="qty" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Category</label>
+                      <input type="text" name="deskripsi" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">First Create Supplier</label>
+                      <input type="text" name="qty" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Contract</label>
+                      <input type="text" name="deskripsi" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Supplier Name</label>
+                      <input type="text" name="qty" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Primary Barcode</label>
+                      <input type="text" name="deskripsi" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Retail GST Rate</label>
+                      <input type="text" name="qty" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Retail W GST</label>
                       <input type="text" name="deskripsi" class="form-control">
                   </div>
                 </div>
@@ -76,7 +146,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="">Jenis Barang</label>
+                    <label for="">Retail UOM</label>
                     <select name="id_jenis_barang" class="form-control">
                       <option value="">--Pilih salah satu--</option>
                       <?php while ($jenis_barang = mysqli_fetch_array($query_jenis_barang)) { ?>
