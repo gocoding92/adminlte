@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <a href="penilaian.php" class="btn btn-sm btn-primary float-right">
-                                        <i class="fa fa-plus"></i>&nbsp; Tambah Data
+                                        <i class="fa fa-plus"></i>&nbsp; Tambah Rekomendasi Karyawan
                                     </a>
                                 </div>
                             </div>

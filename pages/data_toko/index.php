@@ -47,6 +47,7 @@
                                 <th>Deskripsi</th>
                                 <th>Alamat</th>
                                 <th>Waktu Input</th>
+                                <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>

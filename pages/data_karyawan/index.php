@@ -65,6 +65,7 @@
                                 while ($users = mysqli_fetch_array($query)){
                             
                             ?>
+                            
                             <tr>
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $users['nama_lengkap']; ?></td>

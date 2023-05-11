@@ -53,7 +53,7 @@
                         <div class="card-body">
                             <form action="controllers/edit.php" method="post">
                                  <!-- hidden id -->
-                                 <input type="hidden" name="id" value="<?php echo $users['id_karyawan']; ?>">
+                                 <input type="hidden" name="id_karyawan" value="<?php echo $users['id_karyawan']; ?>">
 
                                  <div class="row">
                                     <div class="col-md-6">
@@ -75,7 +75,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Umur</label>
-                                            <input type="text" class="form-control" name="umur" placeholder="Masukkan umur" value="<?php echo $users['tempat_tanggal_lahir']; ?>">
+                                            <input type="text" class="form-control" name="umur" placeholder="Masukkan umur" value="<?php echo $users['umur']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">

@@ -31,7 +31,7 @@
                                         <h3 class="card-title">Data Alternatif</h3>
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="penilaian.php" class="btn btn-sm btn-primary float-right ml-3">
+                                        <a href="alternatif.php?rekomendasi_karyawan=<?php echo md5(date('Ymd his')); ?>" class="btn btn-sm btn-primary float-right ml-3">
                                             <i class="fa fa-plus"></i>&nbsp; Tambah Alternatif
                                         </a>
                                         <a href="dokumentasi_penilaian.php" class="btn btn-sm btn-primary float-right">
