@@ -31,7 +31,7 @@
                                         <h3 class="card-title">Data Alternatif</h3>
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="alternatif.php?rekomendasi_karyawan=<?php echo md5(date('Ymd his')); ?>" class="btn btn-sm btn-primary float-right ml-3">
+                                        <a href="alternatif.php?rekomendasi_karyawan=<?php echo (!empty($_GET['rekomendasi_karyawan'])) ? $_GET['rekomendasi_karyawan'] : null ; ?>" class="btn btn-sm btn-primary float-right ml-3">
                                             <i class="fa fa-plus"></i>&nbsp; Tambah Alternatif
                                         </a>
                                         <a href="dokumentasi_penilaian.php" class="btn btn-sm btn-primary float-right">
@@ -47,7 +47,7 @@
                                         <tr>
                                             <th rowspan="2">No</th>
                                             <th rowspan="2">Nama Karyawan</th>
-                                            <th colspan="6" style="text-align:center">Penilaian Kriteria</th>
+                                            <th colspan="6" style="text-align:center">Penilaian Karyawan Berdasarkan Kriteria</th>
                                         </tr>
                                         <tr>
                                             <th style="text-align:center">Keterlambatan</th>
@@ -59,9 +59,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                        $no = 0;
+                                        $sql ="SELECT * FROM tbl_alternatif AS a INNER JOIN tbl_karyawan AS b ON a.id_karyawan = b.id_karyawan where a.id_rekomendasi_karyawan='".$_GET['rekomendasi_karyawan']."'";
+                                        $query = mysqli_query($db, $sql);
+
+                                        while ($users = mysqli_fetch_array($query)){
+                                    
+                                    ?>
+
                                         <tr>
-                                            <td>1</td>
-                                            <td>Boy</td>
+                                            <td><?php echo $no=$no+1; ?></td>
+                                            <td><?php echo $users['nama_lengkap']; ?></td>
                                             <td><input type="text" class="form-control"></td>
                                             <td><input type="text" class="form-control"></td>
                                             <td><input type="text" class="form-control"></td>
@@ -69,16 +78,9 @@
                                             <td><input type="text" class="form-control"></td>
                                             <td><input type="text" class="form-control"></td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Aman</td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                        </tr>
+
+                                    <?php } ?>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -97,7 +99,7 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h3 class="card-title">Kecocokan Data Alternatif</h3>
+                                        <h3 class="card-title">Bobot Kepentingan</h3>
                                     </div>
                                     <!-- <div class="col-md-6">
                                         <a href="penilaian.php" class="btn btn-sm btn-primary float-right ml-3">
@@ -114,42 +116,88 @@
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th rowspan="2">No</th>
-                                            <th rowspan="2">Alternatif</th>
                                             <th colspan="6" style="text-align:center">Penilaian Kriteria</th>
                                         </tr>
                                         <tr>
-                                            <th style="text-align:center">C1</th>
-                                            <th style="text-align:center">C2</th>
-                                            <th style="text-align:center">C3</th>
-                                            <th style="text-align:center">C4</th>
-                                            <th style="text-align:center">C5</th>
-                                            <th style="text-align:center">C6</th>
+                                            <th style="text-align:center">Keterlambatan (C1)</th>
+                                            <th style="text-align:center">Jam Kerja (C2)</th>
+                                            <th style="text-align:center">Over Time (C3)</th>
+                                            <th style="text-align:center">Teguran (C4)</th>
+                                            <th style="text-align:center">Lama Bekerja (C5)</th>
+                                            <th style="text-align:center">Absensi (C6)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Boy</td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Aman</td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
-                                            <td><input type="text" class="form-control"></td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option value="">Pilih Bobot</option>
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                    <option value="">4</option>
+                                                    <option value="">5</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option value="">Pilih Bobot</option>
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                    <option value="">4</option>
+                                                    <option value="">5</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option value="">Pilih Bobot</option>
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                    <option value="">4</option>
+                                                    <option value="">5</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option value="">Pilih Bobot</option>
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                    <option value="">4</option>
+                                                    <option value="">5</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option value="">Pilih Bobot</option>
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                    <option value="">4</option>
+                                                    <option value="">5</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option value="">Pilih Bobot</option>
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                    <option value="">4</option>
+                                                    <option value="">5</option>
+                                                </select>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary btn-block">  <i class="fa fa-save"></i>&nbsp; SUMBIT PENILAIAN KARYAWAN</button>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             </div>

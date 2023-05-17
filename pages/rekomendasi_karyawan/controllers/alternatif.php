@@ -9,6 +9,7 @@ if (isset($_POST)) {
     $periode_tahun  = date('Y');
     $alternatif  = $_POST['karyawan'];
 
+    $data_push= array();
     for ($i=0; $i < count($alternatif); $i++) { 
         $sql    = "INSERT INTO tbl_alternatif 
                                         (
@@ -25,20 +26,14 @@ if (isset($_POST)) {
             )";
                                 
         $query  = mysqli_query($db, $sql);
+
+        array_push($data_push, $alternatif[$i]);
     }
 
-    // exit;
-
-    // echo "<pre>";
-    // var_dump($alternatif);
-    // var_dump($id_rekomendasi_karyawan);
-    // exit;
-
+    if (count($data_push) == count($alternatif)) {
+        header('Location: ../penilaian.php?rekomendasi_karyawan='.$id_rekomendasi_karyawan.'');
+    }
     
-    
-    // if ($query){
-    //     header('Location: ../index.php');
-    // }
 }else{
     header('Location: ../index.php');
 }

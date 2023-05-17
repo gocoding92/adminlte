@@ -31,7 +31,7 @@
                                     <h3 class="card-title">Data Rekomendasi Karyawan</h3>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="penilaian.php" class="btn btn-sm btn-primary float-right">
+                                    <a href="penilaian.php?rekomendasi_karyawan=<?php echo md5(date('Ymd his')); ?>" class="btn btn-sm btn-primary float-right">
                                         <i class="fa fa-plus"></i>&nbsp; Tambah Rekomendasi Karyawan
                                     </a>
                                 </div>
