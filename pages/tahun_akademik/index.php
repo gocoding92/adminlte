@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
+            <h1 class="m-0">Tahun Akademik</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -49,15 +49,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Tahun Akademik</h5>
-              </div>
               <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+                <table id="list-data-table" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <td>No</td>
+                      <td>Action</td>
+                      <td>Tahun Akademik</td>
+                      <td>Waktu Input</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
+                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
+                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                      </td>
+                      <td>2007-2009</td>
+                      <td>17-10-2023</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>
+                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
+                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
+                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                      </td>
+                      <td>2018-2020</td>
+                      <td>17-10-2023</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>
+                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
+                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
+                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                      </td>
+                      <td>2023-2030</td>
+                      <td>17-10-2023</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>
+                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
+                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
+                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                      </td>
+                      <td>2005-2009</td>
+                      <td>17-10-2023</td>
+                    </tr>
+                  </tbody>
+                </table>
             </div>
           </div>
           <!-- /.col-md-6 -->
@@ -66,6 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+   </div>
   </div>
   <!-- /.content-wrapper -->
     
@@ -79,6 +124,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- include menu -->
 <?php include '../templates/script.php'; ?>
+
+<script>
+  $(function () {
+    $('#list-data-table').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true,
+      "responsive": true,
+    });
+  });
+</script>
 
 </body>
 </html>

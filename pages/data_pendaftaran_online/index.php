@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
+            <h1 class="m-0">Daftar Pendaftaran</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -49,15 +49,69 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Data Pendaftaran</h5>
-              </div>
               <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+                <table id="list-data-table" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <td>No</td>
+                      <td>Action</td>
+                      <td>Nama</td>
+                      <td>Umur</td>
+                      <td>Status Pegawai</td>
+                      <td>Alamat</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
+                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
+                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                      </td>
+                      <td>Marshal</td>
+                      <td>17</td>
+                      <td>Siswa</td>
+                      <td>Jl.Cibunar Metro Parung Panjang</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
+                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
+                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                      </td>
+                      <td>Marshal</td>
+                      <td>17</td>
+                      <td>Siswa</td>
+                      <td>Jl.Cibunar Metro Parung Panjang</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
+                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
+                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                      </td>
+                      <td>Dika</td>
+                      <td>19</td>
+                      <td>Siswa</td>
+                      <td>Jl.Cibunar Metro Parung Panjang</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
+                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
+                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                      </td>
+                      <td>Putri</td>
+                      <td>17</td>
+                      <td>Siswa</td>
+                      <td>Jl.Cibunar Metro Parung Panjang</td>
+                    </tr>
+                  </tbody>
+                </table>
             </div>
           </div>
           <!-- /.col-md-6 -->
@@ -66,6 +120,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+   </div>
   </div>
   <!-- /.content-wrapper -->
     
@@ -79,6 +134,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- include menu -->
 <?php include '../templates/script.php'; ?>
+
+<script>
+  $(function () {
+    $('#list-data-table').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true,
+      "responsive": true,
+    });
+  });
+</script>
 
 </body>
 </html>
