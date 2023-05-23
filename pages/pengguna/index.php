@@ -49,8 +49,10 @@
                     <th>Username</th>
                     <th>Password</th>
                     <th>Nama Lengkap</th>
+                    <th>No Handpone</th>
                     <th>Level</th>
-                    <th>Created Time</th>
+                    <th>Supplier</th>
+                    <th>Cabang</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -70,8 +72,10 @@
                     <td><?php echo $user['username']; ?></td>
                     <td><?php echo $user['password']; ?></td>
                     <td><?php echo $user['nama_lengkap']; ?></td>
+                    <td><?php echo $user['no_handpone']; ?></td>
                     <td><?php echo $user['level']; ?></td>
-                    <td><?php echo $user['created_time']; ?></td>
+                    <td><?php echo $user['supplier']; ?></td>
+                    <td><?php echo $user['cabang']; ?></td>
                     <td>
                       <a href="edit.php?id=<?php echo $user['id_pengguna']; ?>" class="btn btn-sm btn-primary">Edit</a>
                       <!-- <a href="detail.php?id=<?php echo $user['id_pengguna']; ?>" class="btn btn-sm btn-info">Detail</a> -->

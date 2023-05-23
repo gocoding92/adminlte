@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sample Modal</title>
+    <title>Riwayat Transaksi</title>
 
     <!-- // link-rel -->
     <?php include '../templates/link-rel.php'; ?>
@@ -17,6 +17,9 @@
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
     
+  <!--struktur data detail data-->
+
+
     <!-- // content tidak ada -->
     <div class="content-wrapper">
         <!-- Main content -->
@@ -28,12 +31,12 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Data Sample Modal</h3>
+                    <h3 class="card-title">Data Riwayat Transaksi</h3>
                   </div>
                   <div class="col-md-6">
-                    <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#modal-create">
+                    <a href="create.php" class="btn btn-sm btn-primary float-right">
                       <i class="fa fa-plus"></i>&nbsp; Tambah Data
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -43,54 +46,40 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Umur</th>
-                    <th>Status</th>
-                    <th>Tanggal Lahir</th>
+                    <th>Date</th>
+                    <th>SKU</th>
+                    <th>Qty</th>
+                    <th>Total Harga</th>
+                    <th>Periode Bulan</th>
+                    <th>Periode Tahun</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
+
+                  <?php
+                    $no = 1;
+                    $sql = "SELECT * FROM tbl_user WHERE delete_at='0'";
+                    $query = mysqli_query($db, $sql);
+
+                    while ($user = mysqli_fetch_array($query)) {
+                  ?>
+
+
                   <tr>
-                    <td>1</td>
-                    <td>Achmad Rizky</td>
-                    <td>Bogor, Indonesia</td>
-                    <td>30 Tahun</td>
-                    <td>Mahasiswa</td>
-                    <td>Jakarta, 27/Oktober/1992</td>
+                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $user['nama']; ?></td>
+                    <td><?php echo $user['alamat']; ?></td>
+                    <td><?php echo $user['umur']; ?></td>
+                    <td><?php echo $user['status']; ?></td>
+                    <td><?php echo $user['tgl_lahir']; ?></td>
                     <td>
-                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-edit">Edit</button>
-                      <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-detail">Detail</button>
-                      <button class="btn btn-sm btn-danger">Delete</button>
+                      <a href="edit.php?id=<?php echo $user['id_user']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                      <a href="detail.php?id=<?php echo $user['id_user']; ?>" class="btn btn-sm btn-info">Detail</a>
+                      <a href="controllers/delete.php?id=<?php echo $user['id_user']; ?>" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Abdul Rahman</td>
-                    <td>Kalimantan, Indonesia</td>
-                    <td>13 Tahun</td>
-                    <td>Pelajar</td>
-                    <td>Jakarta, 30/Februari/1998</td>
-                    <td>
-                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-edit">Edit</button>
-                      <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-detail">Detail</button>
-                      <button class="btn btn-sm btn-danger">Delete</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Hasan</td>
-                    <td>Jakarta, Indonesia</td>
-                    <td>59 Tahun</td>
-                    <td>Wiraswasta</td>
-                    <td>Jakarta, 27/Januari/1959</td>
-                    <td>
-                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-edit">Edit</button>
-                      <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-detail">Detail</button>
-                      <button class="btn btn-sm btn-danger">Delete</button>
-                    </td>
-                  </tr>
+                  <?php } ?>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -120,13 +109,13 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="">Nama</label>
+                  <label for="">Date</label>
                   <input type="text" name="nama" class="form-control">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="">Umur</label>
+                  <label for="">SKU</label>
                   <input type="text" name="umur" class="form-control">
                 </div>
               </div>
@@ -135,27 +124,27 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                    <label for="">Status</label>
+                    <label for="">Qty</label>
                     <input type="text" name="status" class="form-control">
                 </div>
               </div>
               <div class="col-md-6">
-                <label for="">Tanggal Lahir</label>
+                <label for="">Total Harga</label>
                 <input type="date" name="tgl_lahir" id="" class="form-control">
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-6">
-                <label for="">Alamat</label>
+                <label for="">Periode Bulan</label>
                 <textarea name="alamat" id="" cols="10" rows="6" class="form-control"></textarea>
               </div>
             </div>
           
           </div>
           <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary">Submit</button>
           </div>
         </div>
         <!-- /.modal-content -->
@@ -211,8 +200,8 @@
           
           </div>
           <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary">Submit</button>
           </div>
         </div>
         <!-- /.modal-content -->
@@ -269,8 +258,7 @@
           
           </div>
           <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
           </div>
         </div>
         <!-- /.modal-content -->

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>tambah Data Pengguna</title>
+    <title>Sample link Create</title>
 
     <!-- // link-rel -->
     <?php include '../templates/link-rel.php'; ?>
@@ -28,7 +28,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Create Data Pengguna</h3>
+                    <h3 class="card-title">Data Sample Link Create</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="index.php" class="btn btn-sm btn-primary float-right">
@@ -39,57 +39,48 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-               
+               <form action="controllers/create.php" method="post">
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">username</label>
+                      <label for="">Nama</label>
                       <input type="text" name="nama" class="form-control">
                   </div>
                 </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Password</label>
-                      <input type="text" name="password" class="form-control">
+                      <label for="">Umur</label>
+                      <input type="text" name="umur" class="form-control">
                   </div>
                 </div>
               </div>
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Nama Lengkap</label>
-                      <input type="text" name="nama_lengkap" class="form-control">
+                      <label for="">Status</label>
+                      <input type="text" name="status" class="form-control">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">No Handpone</label>
-                      <input type="text" name="no_handpone" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Level</label>
-                      <select name="id_jenis_barang" class="form-control">
-                        <option value="">--Pilih salah satu--</option>
-                      </select>
+                      <label for="">Tanggal lahir</label>
+                      <input type="date" name="tgl_lahir" class="form-control">
                   </div>
+                </div>
+              </div>
                 <div class="row">
                   <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Supplier</label>
-                    <select name="id_jenis_barang" class="form-control">
-                      <option value="">--Pilih salah satu--</option>
-                      <?php while ($jenis_barang = mysqli_fetch_array($query_jenis_barang)) { ?>
-                        <option value="<?php echo $jenis_barang['id_jenis_barang']?>"><?php echo $jenis_barang['id_jenis_barang'] ?></option>
-                      <?php } ?>
-                    </select>
+                    <div class="form-group">
+                      <label for="">Alamat</label>
+                      <textarea name="alamat" cols="20" rows="6" class="form-control"></textarea>
+                    </div>
                   </div>
+              </div>
                 <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default">Tutup</button>
-                  <button type="button" class="btn btn-primary">Submit</button>
+                  <button type="reset" class="btn btn-default">Tutup</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
+                </form>
                 </div>
               </div>
               <!-- /.card-body -->

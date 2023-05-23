@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>tambah Data Pengguna</title>
+    <title>Sample link Detail</title>
 
     <!-- // link-rel -->
     <?php include '../templates/link-rel.php'; ?>
@@ -17,6 +17,18 @@
     <!-- // side menu -->
     <?php include '../templates/menu.php'; ?>
     
+    <?php
+
+    if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM tbl_user WHERE id_user=$id ";
+    $query = mysqli_query($db, $sql);
+    $user = mysqli_fetch_assoc($query);
+
+  }
+  
+  ?>
     <!-- // content tidak ada -->
     <div class="content-wrapper">
         <!-- Main content -->
@@ -28,7 +40,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Create Data Pengguna</h3>
+                    <h3 class="card-title">Data Sample Link Detail</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="index.php" class="btn btn-sm btn-primary float-right">
@@ -43,54 +55,39 @@
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">username</label>
-                      <input type="text" name="nama" class="form-control">
+                      <label for="">Nama</label>
+                      <p> <?php echo $user['nama']; ?> </p>
                   </div>
                 </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Password</label>
-                      <input type="text" name="password" class="form-control">
+                      <label for="">Umur</label>
+                      <p> <?php echo $user['umur']; ?> </p>
                   </div>
                 </div>
               </div>
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Nama Lengkap</label>
-                      <input type="text" name="nama_lengkap" class="form-control">
+                      <label for="">Status</label>
+                      <p> <?php echo $user['status']; ?> </p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">No Handpone</label>
-                      <input type="text" name="no_handpone" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Level</label>
-                      <select name="id_jenis_barang" class="form-control">
-                        <option value="">--Pilih salah satu--</option>
-                      </select>
+                      <label for="">Tanggal lahir</label>
+                      <p> <?php echo $user['tgl_lahir']; ?> </P>
                   </div>
+                </div>
+              </div>
                 <div class="row">
                   <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Supplier</label>
-                    <select name="id_jenis_barang" class="form-control">
-                      <option value="">--Pilih salah satu--</option>
-                      <?php while ($jenis_barang = mysqli_fetch_array($query_jenis_barang)) { ?>
-                        <option value="<?php echo $jenis_barang['id_jenis_barang']?>"><?php echo $jenis_barang['id_jenis_barang'] ?></option>
-                      <?php } ?>
-                    </select>
+                    <div class="form-group">
+                      <label for="">Alamat</label>
+                      <p> <?php echo $user['alamat']; ?> </p>
+                    </div>
                   </div>
-                <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default">Tutup</button>
-                  <button type="button" class="btn btn-primary">Submit</button>
-                  </div>
-                </div>
+              </div>
               </div>
               <!-- /.card-body -->
             </div>

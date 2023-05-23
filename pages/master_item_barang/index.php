@@ -49,6 +49,7 @@
                     <th>Short SKU</th>
                     <th>Description</th>
                     <th>PLU Description</th>
+                    <th>Qty</th>
                     <th>Line</th>
                     <th>Divison</th>
                     <th>Group</th>
@@ -66,22 +67,29 @@
                   </thead>
                   <tbody>
 
-                  <?php
-                    $no = 1;
-                    // $sql = "SELECT * FROM tbl_barang AS a 
-                    //         INNER JOIN tbl_jenis_barang AS b ON a.id_jenis_barang = b.id_jenis_barang 
-                    //         WHERE a.delete_at='0'
-                    //       ";
-                    $sql = "SELECT * FROM tbl_item_barang LIMIT 100 ";
-                    $query = mysqli_query($db, $sql);
+                    <?php
+                      $no = 1;
 
-                    while ($user = mysqli_fetch_array($query)) {
-                  ?>
+
+                      $sql = "SELECT * FROM tbl_item_barang LIMIT 100 ";
+                     
+                      // 2 = level sales
+                      if ($_SESSION['_data']->level == 2) {
+                        $sql = "SELECT * FROM tbl_item_barang WHERE first_create_supplier = ".$_SESSION['_data']->supplier." ";
+                      }
+
+
+                      $query = mysqli_query($db, $sql);
+
+                      while ($user = mysqli_fetch_array($query)) {
+                    ?>
+
                   <tr>
                     <td><?php echo $no++; ?></td>
                     <td><?php echo $user['short_sku']; ?></td>
                     <td><?php echo $user['description']; ?></td>
                     <td><?php echo $user['plu_description']; ?></td>
+                    <td><?php echo $user['qty']; ?></td>
                     <td><?php echo $user['line']; ?></td>
                     <td><?php echo $user['division']; ?></td>
                     <td><?php echo $user['group']; ?></td>

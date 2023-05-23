@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sample link Create</title>
+    <title>Tambah Data Supplier</title>
 
     <!-- // link-rel -->
     <?php include '../templates/link-rel.php'; ?>
@@ -28,7 +28,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-6">
-                    <h3 class="card-title">Data Sample Link Create</h3>
+                    <h3 class="card-title">Tambah Data Supplier</h3>
                   </div>
                   <div class="col-md-6">
                     <a href="index.php" class="btn btn-sm btn-primary float-right">
@@ -43,37 +43,24 @@
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Nama</label>
-                      <input type="text" name="nama" class="form-control">
+                      <label for="">Code Supplier</label>
+                      <input type="text" name="code_supplier" class="form-control">
                   </div>
                 </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Umur</label>
-                      <input type="text" name="umur" class="form-control">
+                      <label for="">Contract</label>
+                      <input type="text" name="contract" class="form-control">
                   </div>
                 </div>
               </div>
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="">Status</label>
-                      <input type="text" name="status" class="form-control">
+                      <label for="">Description Supplier</label>
+                      <input type="text" name="supplier_description" class="form-control">
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Tanggal lahir</label>
-                      <input type="date" name="tgl_lahir" id="" class="form-control">
-                  </div>
-                </div>
-              </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Alamat</label>
-                      <textarea name="alamat" cols="20" rows="6" class="form-control"></textarea>
-                    </div>
                   </div>
               </div>
                 <div class="modal-footer justify-content-between">

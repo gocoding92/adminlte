@@ -16,7 +16,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="../../index.php">
+        <a class="nav-link" href="../templates/controllers/logout.php">
           <i class="fas fa-sign-out-alt"></i>
         </a>
       </li>
