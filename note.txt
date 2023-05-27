@@ -1,0 +1,82 @@
+#FITUR MENU
+
+1. Dashboard
+2. Daftar Karyawan
+3. Data Pendaftaran Online
+4. Data Siswa & Data Alumni
+5. Rangkuman Nilai
+6. Absensi Siswa
+7. Modul Pelajaran
+8. Keuangan
+9. Daftar Info (Blast WA)
+10. Master Data
+    - Kelas
+    - Mata Pelajaran
+    - Jabatan
+    - Jurusan
+    - Tahun Akademik
+    - Kurikulum
+
+#STRUKTUR DATABASE DAN TABEL
+
+DATABASE: sistem_akademik
+JUMLAH TABEL: 6
+
+1. Dashboard
+2. Daftar Karyawan
+3. Data Pendaftaran Online
+4. Data Siswa & Data Alumni
+5. Rangkuman Nilai
+6. Absensi Siswa
+7. Modul Pelajaran
+8. Keuangan
+9. Daftar Info (Blast WA)
+10. Master Data
+    - Kelas
+        1. tbl_kelas
+            - id_kelas Primary key INT 11 Auto Increment
+            - nama_kelas Varchar 100
+            - deleted_at int 11
+            - created_time Datetime
+            - updated_time Datetime 
+
+    - Mata Pelajaran
+        2. tbl_mata_pelajaran
+            - id_mata_pelajaran Primary key INT 11 Auto Increment 
+            - nama_mata_pelajaran Varchar 100
+            - deleted_at int 11
+            - created_time Datetime
+            - updated_time Datetime 
+
+    - Jabatan
+        3. tbl_jabatan
+            - id_jabatan Primary key INT 11 Auto Increment 
+            - nama_jabatan Varchar 100
+            - deleted_at int 11
+            - created_time Datetime
+            - updated_time Datetime
+
+    - Jurusan
+        4. tbl_jurusan
+            - id_jurusan Primary key INT 11 Auto Increment
+            - nama_jurusan Varchar 100
+            - deleted_at int 11
+            - created_time Datetime
+            - updated_time Datetime
+
+    - Tahun Akademik
+        5. tbl_tahun_akademik
+            - id_tahun_akademik Primary key INT 11 Auto Increment
+            - tahun_akademik Varchar 100
+            - deleted_at int 11
+            - created_time Datetime
+            - updated_time Datetime
+
+    - Kurikulum
+        6. tbl_kurikulum
+            -id_kurikulum Primary key INT 11 aUTO increment
+            - nama_kurikulum Varchar 100
+            - deleted_at int 11
+            - created_time Datetime
+            - update_time Datetime
+

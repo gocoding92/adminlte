@@ -60,46 +60,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </tr>
                   </thead>
                   <tbody>
+
+                  <?php
+                    $no =1;
+                    $sql ="SELECT * FROM tbl_mata_pelajaran WHERE deleted_at='0'";
+                    $query = mysqli_query($db, $sql);
+
+                    while ($data = mysqli_fetch_array($query)) {
+                  ?>
                     <tr>
-                      <td>1</td>
+                      <td><?php echo $no++; ?></td>
                       <td>
                         <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
                         <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
-                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                        <a href="controllers/delete.php?id=<?php echo $data['id_mata_pelajaran']; ?>">
+                          <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
+                        </a>
                       </td>
-                      <td>Matematika</td>
-                      <td>17-10-2023</td>
+                      <td><?php echo $data['nama_mata_pelajaran']; ?></td>
+                      <td><?php echo $data['created_time']; ?></td>
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>
-                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
-                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
-                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
-                      </td>
-                      <td>Bahasa Indonesia</td>
-                      <td>29-01-2023</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>
-                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
-                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
-                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
-                      </td>
-                      <td>Sejarah</td>
-                      <td>24-08-2023</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>
-                        <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
-                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
-                        <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
-                      </td>
-                      <td>IPAS</td>
-                      <td>07-11-2023</td>
-                    </tr>
+
+
+                    <?php } ?>
+
+
                   </tbody>
                 </table>
             </div>
