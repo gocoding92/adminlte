@@ -1,5 +1,8 @@
 <?php
 
+    include '../../../config/koneksi/koneksi.php';
+
+
     echo "<pre>";
 
     $c1 = $_POST['keterlambatan'];
@@ -21,6 +24,23 @@
     $max_c5 = max($c5[0], $c5[1], $c5[2], $c5[3], $c5[4]);
     // c6 absensi : cost
     $min_c6 = min($c6[0], $c6[1], $c6[2], $c6[3], $c6[4]);
+
+    $sql    = "INSERT INTO tbl_nilai_alternatif (
+                                                 a1_c1, a1_c2, a1_c3, a1_c4, a1_c5, a1_c6,
+                                                 a2_c1, a2_c2, a2_c3, a2_c4, a2_c5, a2_c6,
+                                                 a3_c1, a3_c2, a3_c3, a3_c4, a3_c5, a3_c6,
+                                                 a4_c1, a4_c2, a4_c3, a4_c4, a4_c5, a4_c6,
+                                                 a5_c1, a5_c2, a5_c3, a5_c4, a5_c5, a5_c6
+                                                ) VALUES 
+                                                (
+                                                '$c1[0]', '$c2[0]', '$c3[0]', '$c4[0]', '$c5[0]', '$c6[0]',
+                                                '$c1[1]', '$c2[1]', '$c3[1]', '$c4[1]', '$c5[1]', '$c6[1]',
+                                                '$c1[2]', '$c2[2]', '$c3[2]', '$c4[2]', '$c5[2]', '$c6[2]',
+                                                '$c1[3]', '$c2[3]', '$c3[3]', '$c4[3]', '$c5[3]', '$c6[3]',
+                                                '$c1[4]', '$c2[4]', '$c3[4]', '$c4[4]', '$c5[4]', '$c6[4]'
+                                                )";
+                                
+    $query  = mysqli_query($db, $sql);
 
     // tahap normalisasi
 
@@ -66,21 +86,49 @@
     $normalisasi_c6_4 = $c6[3] / $min_c6;
     $normalisasi_c6_5 = $c6[4] / $min_c6;
 
+    $sql = "INSERT INTO tbl_nilai_normalisasi (
+                                                 a1_c1, a1_c2, a1_c3, a1_c4, a1_c5, a1_c6,
+                                                 a2_c1, a2_c2, a2_c3, a2_c4, a2_c5, a2_c6,
+                                                 a3_c1, a3_c2, a3_c3, a3_c4, a3_c5, a3_c6,
+                                                 a4_c1, a4_c2, a4_c3, a4_c4, a4_c5, a4_c6,
+                                                 a5_c1, a5_c2, a5_c3, a5_c4, a5_c5, a5_c6 
+       ) VALUES 
+       (
+       '$normalisasi_c1_1', '$normalisasi_c2_1', '$normalisasi_c3_1', '$normalisasi_c4_1', '$normalisasi_c5_1', '$normalisasi_c6_1',
+       '$normalisasi_c1_2', '$normalisasi_c2_2', '$normalisasi_c3_2', '$normalisasi_c4_2', '$normalisasi_c5_2', '$normalisasi_c6_2',
+       '$normalisasi_c1_3', '$normalisasi_c2_3', '$normalisasi_c3_3', '$normalisasi_c4_3', '$normalisasi_c5_3', '$normalisasi_c6_3',
+       '$normalisasi_c1_4', '$normalisasi_c2_4', '$normalisasi_c3_4', '$normalisasi_c4_4', '$normalisasi_c5_4', '$normalisasi_c6_4',
+       '$normalisasi_c1_5', '$normalisasi_c2_5', '$normalisasi_c3_5', '$normalisasi_c4_5', '$normalisasi_c5_5', '$normalisasi_c6_5'
+       )";
+
+    $query  = mysqli_query($db, $sql);
+
     // static
-    $bobot1 = 10;
-    $bobot2 = 15;
-    $bobot3 = 25;
-    $bobot4 = 10;
-    $bobot5 = 30;
-    $bobot6 = 10;
+    // $bobot1 = 10;
+    // $bobot2 = 15;
+    // $bobot3 = 25;
+    // $bobot4 = 10;
+    // $bobot5 = 30;
+    // $bobot6 = 10;
 
     // dinamic
-    // $bobot1 = $_POST['bobot1'];
-    // $bobot2 = $_POST['bobot2'];
-    // $bobot3 = $_POST['bobot3'];
-    // $bobot4 = $_POST['bobot4'];
-    // $bobot5 = $_POST['bobot5'];
-    // $bobot6 = $_POST['bobot6'];
+    $bobot1 = $_POST['bobot1'];
+    $bobot2 = $_POST['bobot2'];
+    $bobot3 = $_POST['bobot3'];
+    $bobot4 = $_POST['bobot4'];
+    $bobot5 = $_POST['bobot5'];
+    $bobot6 = $_POST['bobot6'];
+
+    $sql = "INSERT INTO tbl_nilai_bobot (
+        bobot1, bobot2, bobot3, bobot4, bobot5, bobot6
+        ) VALUES 
+        (
+        '$bobot1', '$bobot2', '$bobot3', '$bobot4', '$bobot5', '$bobot6'
+        )";
+
+    $query  = mysqli_query($db, $sql);
+    exit;
+
 
     // tahap perangkingan
 
