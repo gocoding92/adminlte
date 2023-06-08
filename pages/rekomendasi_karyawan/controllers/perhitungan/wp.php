@@ -1,4 +1,7 @@
 <?php
+    include '../../../config/koneksi/koneksi.php';
+    
+    echo "<pre>";
 
     $id_rekomendasi_karyawan  = (!empty($_GET['rekomendasi_karyawan'])) ? $_GET['rekomendasi_karyawan'] : '';
 
@@ -19,9 +22,22 @@
     $w5 = round($bobot5 / $jumlah_bobot, 3);
     $w6 = round($bobot6 / $jumlah_bobot, 3);
 
+    $sql = "INSERT INTO tbl_normalisasi_bobot (id_rekomendasi_karyawan,
+    w1, w2, w3, w4, w5, w6
+    ) VALUES 
+    ( '$id_rekomendasi_karyawan',
+    '$w1', '$w2', '$w3', '$w4', '$w5', '$w6'
+    )";
+
+    $query  = mysqli_query($db, $sql);
+
+    var_dump($query);
+    exit;
+
     $w_struktur = array($w1, $w2, $w3, $w4, $w5, $w6);
 
     $jumlah_w = $w1 + $w2 + $w3 + $w4 + $w5 + $w6;
+    
 
     // batas normalisasi bobot ------------------------------------------------
 
@@ -32,7 +48,7 @@
     $c4 = $_POST['teguran'];
     $c5 = $_POST['lama_bekerja'];
     $c6 = $_POST['absensi'];
-    
+
     // menentukan vektor s
     $s_1_1 = $c1[0] - $w1;
     $s_1_2 = $c2[0] - $w2;
@@ -82,6 +98,19 @@
     $s4 = round($s_4_1 * $s_4_2 * $s_4_3 * $s_4_4 * $s_4_5 * $s_4_6, 3);
     $s5 = round($s_5_1 * $s_5_2 * $s_5_3 * $s_5_4 * $s_5_5 * $s_5_6, 3);
 
+    
+    $sql = "INSERT INTO tbl_vektor_s (id_rekomendasi_karyawan,
+    s1, s2, s3, s4, s5
+    ) VALUES 
+    ( '$id_rekomendasi_karyawan',
+    '$s1', '$s2', '$s3', '$s4', '$s5'
+    )";
+
+    $query  = mysqli_query($db, $sql);
+
+    var_dump($query);
+    exit;
+
 
     
     // $w_struktur = array($w1, $w2, $w3, $w4, $w5, $w6);
@@ -99,6 +128,8 @@
     $v3 = round($s3 / $v, 3);
     $v4 = round($s4 / $v, 3);
     $v5 = round($s5 / $v, 3);
+
+
     // $w2 = round($bobot2 / $jumlah_bobot, 3);
     // $w3 = round($bobot3 / $jumlah_bobot, 3);
     // $w4 = round($bobot4 / $jumlah_bobot, 3);

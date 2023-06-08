@@ -25,14 +25,14 @@
     // c6 absensi : cost
     $min_c6 = min($c6[0], $c6[1], $c6[2], $c6[3], $c6[4]);
 
-    $sql    = "INSERT INTO tbl_nilai_alternatif (
+    $sql    = "INSERT INTO tbl_nilai_alternatif (id_rekomendasi_karyawan,
                                                  a1_c1, a1_c2, a1_c3, a1_c4, a1_c5, a1_c6,
                                                  a2_c1, a2_c2, a2_c3, a2_c4, a2_c5, a2_c6,
                                                  a3_c1, a3_c2, a3_c3, a3_c4, a3_c5, a3_c6,
                                                  a4_c1, a4_c2, a4_c3, a4_c4, a4_c5, a4_c6,
                                                  a5_c1, a5_c2, a5_c3, a5_c4, a5_c5, a5_c6
                                                 ) VALUES 
-                                                (
+                                                ('$id_rekomendasi_karyawan',
                                                 '$c1[0]', '$c2[0]', '$c3[0]', '$c4[0]', '$c5[0]', '$c6[0]',
                                                 '$c1[1]', '$c2[1]', '$c3[1]', '$c4[1]', '$c5[1]', '$c6[1]',
                                                 '$c1[2]', '$c2[2]', '$c3[2]', '$c4[2]', '$c5[2]', '$c6[2]',
@@ -86,14 +86,14 @@
     $normalisasi_c6_4 = $c6[3] / $min_c6;
     $normalisasi_c6_5 = $c6[4] / $min_c6;
 
-    $sql = "INSERT INTO tbl_nilai_normalisasi (
+    $sql = "INSERT INTO tbl_nilai_normalisasi (id_rekomendasi_karyawan,
                                                  a1_c1, a1_c2, a1_c3, a1_c4, a1_c5, a1_c6,
                                                  a2_c1, a2_c2, a2_c3, a2_c4, a2_c5, a2_c6,
                                                  a3_c1, a3_c2, a3_c3, a3_c4, a3_c5, a3_c6,
                                                  a4_c1, a4_c2, a4_c3, a4_c4, a4_c5, a4_c6,
                                                  a5_c1, a5_c2, a5_c3, a5_c4, a5_c5, a5_c6 
        ) VALUES 
-       (
+       ( '$id_rekomendasi_karyawan',
        '$normalisasi_c1_1', '$normalisasi_c2_1', '$normalisasi_c3_1', '$normalisasi_c4_1', '$normalisasi_c5_1', '$normalisasi_c6_1',
        '$normalisasi_c1_2', '$normalisasi_c2_2', '$normalisasi_c3_2', '$normalisasi_c4_2', '$normalisasi_c5_2', '$normalisasi_c6_2',
        '$normalisasi_c1_3', '$normalisasi_c2_3', '$normalisasi_c3_3', '$normalisasi_c4_3', '$normalisasi_c5_3', '$normalisasi_c6_3',
@@ -119,15 +119,14 @@
     $bobot5 = $_POST['bobot5'];
     $bobot6 = $_POST['bobot6'];
 
-    $sql = "INSERT INTO tbl_nilai_bobot (
+    $sql = "INSERT INTO tbl_nilai_bobot (id_rekomendasi_karyawan,
         bobot1, bobot2, bobot3, bobot4, bobot5, bobot6
         ) VALUES 
-        (
+        ( '$id_rekomendasi_karyawan',
         '$bobot1', '$bobot2', '$bobot3', '$bobot4', '$bobot5', '$bobot6'
         )";
 
     $query  = mysqli_query($db, $sql);
-    exit;
 
 
     // tahap perangkingan
@@ -179,3 +178,12 @@
     $alternatif_4 = $alternatif_4_1 + $alternatif_4_2 + $alternatif_4_3 + $alternatif_4_4 + $alternatif_4_5 + $alternatif_4_6;
     $alternatif_5 = $alternatif_5_1 + $alternatif_5_2 + $alternatif_5_3 + $alternatif_5_4 + $alternatif_5_5 + $alternatif_5_6;
     
+    $sql = "INSERT INTO tbl_nilai_perangkingan (id_rekomendasi_karyawan,
+        a1, a2, a3, a4, a5
+        ) VALUES 
+        ('$id_rekomendasi_karyawan',
+        '$alternatif_1', '$alternatif_2', '$alternatif_3', '$alternatif_4', '$alternatif_5'
+        )";
+
+    $query  = mysqli_query($db, $sql);
+    exit;
