@@ -22,6 +22,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- include menu -->
     <?php include '../templates/menu.php'; ?>
 
+    <!-- struktur data detail data -->
+
+    <?php
+    if(isset($_GET['id'])) {
+      $id = $_GET['id'];
+
+      $sql  ="SELECT * FROM tbl_tahun_akademik WHERE id_tahun_akademik=$id ";
+      $query = mysqli_query($db, $sql);
+      $data = mysqli_fetch_assoc($query);
+    }
+  ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -55,7 +66,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Tahun Akademik</label>
-                      <input type="text" class="form-control" name="nama_akademik" placeholder="Masukan Tahun Akademik">
+                      <input type="hidden" name="id_tahun_akademik" value="<?php echo $data['id_tahun_akademik']; ?>">
+                      <input type="text" class="form-control" value="<?php echo $data['nama_akademik']; ?>" name="nama_akademik" placeholder="Masukan Tahun Akademik">
                     </div>
                   </div>
                 </div>

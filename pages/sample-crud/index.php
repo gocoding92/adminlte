@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Jurusan</h1>
+            <h1 class="m-0">Kurikulum</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -50,9 +50,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <div class="row mb-2">
+              <div class="row mb-2">
                   <div class="col-lg-12">
-                    <a href="create.php" class="btn btn-info"><i class="fa fa-plus"></i> Tambah Master Jurusan</a>
+                    <a href="create.php" class="btn btn-info"><i class="fa fa-plus"></i> Tambah Master Kurikulum</a>
                   </div>
                 </div>
                 <hr />
@@ -61,34 +61,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <tr>
                       <td>No</td>
                       <td>Action</td>
-                      <td>Jurusan</td>
+                      <td>Kurikulum</td>
                       <td>Waktu Input</td>
                     </tr>
                   </thead>
                   <tbody>
 
+
                   <?php
                     $no =1;
-                    $sql ="SELECT * FROM tbl_jurusan WHERE deleted_at='0'";
+                    $sql ="SELECT * FROM tbl_kurikulum WHERE deleted_at='0'";
                     $query = mysqli_query($db, $sql);
 
                     while ($data = mysqli_fetch_array($query)) {
                   ?>
                     <tr>
-                      <td><?php echo $no++; ?></td>
+                      <td><?php echo $no++; ?></</td>
                       <td>
-                      <a href="edit.php?id=<?php echo $data['id_jurusan']; ?>">
+                      <a href="edit.php?id=<?php echo $data['id_kurikulum']; ?>">
                           <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
                         </a>
-                        <a href="controllers/delete.php?id=<?php echo $data['id_jurusan']; ?>">
+                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
+                        <a href="controllers/delete.php?id=<?php echo $data['id_kurikulum']; ?>">
                           <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
                         </a>
                       </td>
-                    <td><?php echo $data['nama_jurusan']; ?></td>
-                    <td><?php echo $data['created_time']; ?></td>
-                  </tr>
+                      <td><?php echo $data['nama_kurikulum']; ?></td>
+                      <td><?php echo $data['created_time']; ?></td>
+                    </tr>
 
                     <?php } ?>
+
+
                   </tbody>
                 </table>
             </div>

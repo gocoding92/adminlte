@@ -3,10 +3,10 @@
 include '../../../config/koneksi/koneksi.php';
 
 if(isset($_POST)) {
-    $kelas  = $_POST["kelas"];
-    $id_kelas=$_POST["id_kelas"];
+    $nama_jabatan  = $_POST["nama_jabatan"];
+    $id_jabatan=$_POST["id_jabatan"];
 
-    $sql    = "UPDATE tbl_kelas SET nama_kelas='$kelas' WHERE id_kelas='$id_kelas'";
+    $sql    = "UPDATE tbl_jabatan SET nama_jabatan='$nama_jabatan' WHERE id_jabatan='$id_jabatan'";
 
     $query  = mysqli_query($db, $sql);
 

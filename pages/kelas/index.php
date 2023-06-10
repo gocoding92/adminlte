@@ -81,7 +81,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="edit.php?id=<?php echo $data['id_kelas']; ?>">
                           <span class="right badge badge-info"><i class="fa fa-edit"></i>&nbsp; Edit</span>
                         </a>
-                        <span class="right badge badge-primary"><i class="fa fa-eye"></i>&nbsp; Detail</span>
                         <a href="controllers/delete.php?id=<?php echo $data['id_kelas']; ?>">
                           <span class="right badge badge-danger"><i class="fa fa-trash"></i>&nbsp; Delete</span>
                         </a>

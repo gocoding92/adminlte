@@ -22,6 +22,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- include menu -->
     <?php include '../templates/menu.php'; ?>
 
+    <!-- struktur data detail data -->
+
+    <?php
+    if(isset($_GET['id'])) {
+      $id = $_GET['id'];
+
+      $sql  ="SELECT * FROM tbl_jurusan WHERE id_jurusan=$id ";
+      $query = mysqli_query($db, $sql);
+      $data = mysqli_fetch_assoc($query);
+    }
+  ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -55,7 +66,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="">Jurusan</label>
-                      <input type="text" class="form-control" name="jurusan" placeholder="Masukan Jurusan">
+                      <!-- hidden id -->
+                      <input type="hidden" name="id_jurusan" value="<?php echo $data['id_jurusan']; ?>">
+                      <input type="text" class="form-control" value="<?php echo $data['nama_jurusan']; ?>" name="jurusan" placeholder="Masukan Jurusan">
                     </div>
                   </div>
                 </div>
