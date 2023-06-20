@@ -1,8 +1,6 @@
 <?php
     include '../../../config/koneksi/koneksi.php';
     
-    echo "<pre>";
-
     $id_rekomendasi_karyawan  = (!empty($_GET['rekomendasi_karyawan'])) ? $_GET['rekomendasi_karyawan'] : '';
 
     // 1. normalisasi bobot
@@ -30,9 +28,6 @@
     )";
 
     $query  = mysqli_query($db, $sql);
-
-    var_dump($query);
-    exit;
 
     $w_struktur = array($w1, $w2, $w3, $w4, $w5, $w6);
 
@@ -85,13 +80,6 @@
     $s_5_5 = $c5[4] - $w5;
     $s_5_6 = $c6[4] - $w6;
 
-    // $s_2_1 = $c1[1] - $w1;
-    // $s_2_2 = $c2[1] - $w2;
-    // $s_2_3 = $c3[1] - $w3;
-    // $s_2_4 = $c4[1] - $w4;
-    // $s_2_5 = $c5[1] - $w5;
-    // $s_2_6 = $c6[1] - $w6;
-
     $s1 = round($s_1_1 * $s_1_2 * $s_1_3 * $s_1_4 * $s_1_5 * $s_1_6, 3);
     $s2 = round($s_2_1 * $s_2_2 * $s_2_3 * $s_2_4 * $s_2_5 * $s_2_6, 3);
     $s3 = round($s_3_1 * $s_3_2 * $s_3_3 * $s_3_4 * $s_3_5 * $s_3_6, 3);
@@ -107,18 +95,7 @@
     )";
 
     $query  = mysqli_query($db, $sql);
-
-    var_dump($query);
-    exit;
-
-
     
-    // $w_struktur = array($w1, $w2, $w3, $w4, $w5, $w6);
-
-    // $jumlah_w = $w1 + $w2 + $w3 + $w4 + $w5 + $w6;
-
-
-
     // Menghitung Vektor V
 
     $v = $s1 + $s2 + $s3 + $s4 + $s5; 
@@ -129,9 +106,11 @@
     $v4 = round($s4 / $v, 3);
     $v5 = round($s5 / $v, 3);
 
+    $sql = "INSERT INTO tbl_vektor_v (id_rekomendasi_karyawan,
+    v1, v2, v3, v4, v5
+    ) VALUES 
+    ( '$id_rekomendasi_karyawan',
+    '$v1', '$v2', '$v3', '$v4', '$v5'
+    )";
 
-    // $w2 = round($bobot2 / $jumlah_bobot, 3);
-    // $w3 = round($bobot3 / $jumlah_bobot, 3);
-    // $w4 = round($bobot4 / $jumlah_bobot, 3);
-    // $w5 = round($bobot5 / $jumlah_bobot, 3);
-    // $w6 = round($bobot6 / $jumlah_bobot, 3);
+    $query  = mysqli_query($db, $sql);

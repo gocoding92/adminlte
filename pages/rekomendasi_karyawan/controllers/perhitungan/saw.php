@@ -186,4 +186,3 @@
         )";
 
     $query  = mysqli_query($db, $sql);
-    exit;

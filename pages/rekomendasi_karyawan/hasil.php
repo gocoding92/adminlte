@@ -15,6 +15,63 @@
             <?php include '../templates/header.php'; ?>
             <!-- // side menu -->
             <?php include '../templates/menu.php'; ?>
+
+            <!-- struktur data detail data -->
+            <?php
+                $rekomendasi_karyawan = $_GET['rekomendasi_karyawan'];
+
+                // Metode SAW
+
+                // Mengeluarkan Nilai Alternatif
+                $sql ="SELECT * FROM tbl_nilai_alternatif where id_rekomendasi_karyawan='$rekomendasi_karyawan'";
+                $query = mysqli_query($db, $sql);
+
+                $data_nilai_alternatif = mysqli_fetch_array($query);
+
+                // mengeluarkan Nilai Bobot
+                $sql ="SELECT * FROM tbl_nilai_bobot where id_rekomendasi_karyawan='$rekomendasi_karyawan'";
+                $query = mysqli_query($db, $sql);
+
+                $data_nilai_bobot = mysqli_fetch_array($query);
+
+                // Mengeluarkan Nilai Normalisasi
+                $sql ="SELECT * FROM tbl_nilai_normalisasi where id_rekomendasi_karyawan='$rekomendasi_karyawan'";
+                $query = mysqli_query($db, $sql);
+
+                $data_nilai_normalisasi = mysqli_fetch_array($query);
+
+                // Mengeluarkan Nilai Perangkiangan
+                $sql ="SELECT * FROM tbl_nilai_perangkingan where id_rekomendasi_karyawan='$rekomendasi_karyawan'";
+                $query = mysqli_query($db, $sql);
+
+                $data_nilai_perangkingan = mysqli_fetch_array($query);
+
+                // Metode WP
+
+                // Mengeluarkan Nilai W (Normalisasi Bobot)
+                $sql ="SELECT * FROM tbl_normalisasi_bobot where id_rekomendasi_karyawan='$rekomendasi_karyawan'";
+                $query = mysqli_query($db, $sql);
+
+                $data_normalisasi_bobot = mysqli_fetch_array($query);
+
+                // Mengeluarkan Nilai Vektor S
+                $sql ="SELECT * FROM tbl_vektor_s where id_rekomendasi_karyawan='$rekomendasi_karyawan'";
+                $query = mysqli_query($db, $sql);
+
+                $data_vektor_s = mysqli_fetch_array($query);
+
+                // Mengeluarkan Nilai Vektor V
+                $sql ="SELECT * FROM tbl_vektor_v where id_rekomendasi_karyawan='$rekomendasi_karyawan'";
+                $query = mysqli_query($db, $sql);
+
+                $data_vektor_v = mysqli_fetch_array($query);
+
+                
+
+                // echo "<pre>";
+                // var_dump($data_vektor_v);
+                // exit;
+            ?>
        
             <!-- // content -->
             <!-- Content Wrapper. Contains page content -->
@@ -42,7 +99,7 @@
                             </div>
 
                             <?php 
-                                // include "hasil/saw.php";
+                                //include "hasil/saw.php";
 
                                 include "hasil/wp.php";
                             ?>
