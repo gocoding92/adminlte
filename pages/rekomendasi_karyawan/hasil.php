@@ -66,11 +66,21 @@
 
                 $data_vektor_v = mysqli_fetch_array($query);
 
+                $nilai_max_saw = max(
+                                        $data_nilai_perangkingan['a1'], 
+                                        $data_nilai_perangkingan['a2'],
+                                        $data_nilai_perangkingan['a3'],
+                                        $data_nilai_perangkingan['a4'],
+                                        $data_nilai_perangkingan['a5']
+                                    );
                 
-
-                // echo "<pre>";
-                // var_dump($data_vektor_v);
-                // exit;
+                $nilai_max_wp = max(
+                                        $data_vektor_v['v1'],
+                                        $data_vektor_v['v2'],
+                                        $data_vektor_v['v3'],
+                                        $data_vektor_v['v4'],
+                                        $data_vektor_v['v5']
+                                    );
             ?>
        
             <!-- // content -->

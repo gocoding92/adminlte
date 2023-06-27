@@ -2,9 +2,6 @@
 
     include '../../../config/koneksi/koneksi.php';
 
-
-    echo "<pre>";
-
     $c1 = $_POST['keterlambatan'];
     $c2 = $_POST['jam_kerja'];
     $c3 = $_POST['overtime'];
@@ -186,3 +183,39 @@
         )";
 
     $query  = mysqli_query($db, $sql);
+
+    $nilai_max_saw = max(
+        $alternatif_1,
+        $alternatif_2,
+        $alternatif_3,
+        $alternatif_4,
+        $alternatif_5
+    );
+
+    if ($alternatif_1 == $nilai_max_saw) {
+        $index = 0;
+    }else if ($alternatif_2== $nilai_max_saw) {
+        $index = 1;
+    }else if ($alternatif_3 == $nilai_max_saw) {
+        $index = 2;
+    }else if ($alternatif_4 == $nilai_max_saw) {
+        $index = 3;
+    }else if ($alternatif_5 == $nilai_max_saw) {
+        $index = 4;
+    }
+
+    $sql ="SELECT * FROM tbl_karyawan AS a INNER JOIN tbl_alternatif AS b ON a.id_karyawan = b.id_karyawan  where b.id_rekomendasi_karyawan='$id_rekomendasi_karyawan'";
+    
+    $query = mysqli_query($db, $sql);
+    $nama_alternatif_saw = '';
+
+    $no = 0;
+    while ($data = mysqli_fetch_array($query)){
+        if ($no == $index) {
+            $nama_alternatif_saw = $data['nama_lengkap'];
+        }
+
+        $no++;
+    }
+
+

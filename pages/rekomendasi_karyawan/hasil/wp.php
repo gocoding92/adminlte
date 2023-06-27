@@ -1,4 +1,11 @@
 <!-- /.card-body -->
+<style>
+    .max{
+        background-color: red; 
+        color: white;
+    }
+</style>
+
 <div class="card-body">
 
     <div class="row">
@@ -222,26 +229,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="<?php echo $nilai_max_saw == $data_nilai_perangkingan['a1'] ? 'max' : ''  ?>">
                                 <td>1</td>
                                 <td>Yamamoni Lase</td>
                                 <td><?php echo $data_nilai_perangkingan['a1'] ?></td>
-                            <tr>
+                            </tr>
+                            <tr class="<?php echo $nilai_max_saw == $data_nilai_perangkingan['a2'] ? 'max' : ''  ?>">
                                 <td>2</td>
                                 <td>Ruth Innel Gea</td>
                                 <td><?php echo $data_nilai_perangkingan['a2'] ?></td>
                             </tr>
-                            <tr>
+                            <tr class="<?php echo $nilai_max_saw == $data_nilai_perangkingan['a3'] ? 'max' : ''  ?>">
                                 <td>3</td>
                                 <td>Andi Hulu</td>
                                 <td><?php echo $data_nilai_perangkingan['a3'] ?></td>
                             </tr>
-                            <tr>
+                            <tr class="<?php echo $nilai_max_saw == $data_nilai_perangkingan['a4'] ? 'max' : ''  ?>">
                                 <td>4</td>
                                 <td>Fefan Hulu</td>
                                 <td><?php echo $data_nilai_perangkingan['a4'] ?></td>
                             </tr>
-                            <tr>
+                            <tr class="<?php echo $nilai_max_saw == $data_nilai_perangkingan['a5'] ? 'max' : ''  ?>">
                                 <td>5</td>
                                 <td>Arles Jaya Zai</td>
                                 <td><?php echo $data_nilai_perangkingan['a5'] ?></td>
@@ -338,6 +346,8 @@
                 </div>
             </div>
 
+           
+
             <div class="row">
                 <div class="col-md-6">
                     <label for="">5. Menentukan Nilai Vektor V</label>
@@ -350,27 +360,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="<?php echo $nilai_max_wp == $data_vektor_v['v1'] ? 'max' : ''  ?>">
                                 <td>1</td>
                                 <td>V1</td>
                                 <td><?php echo $data_vektor_v['v1']; ?></td>
                             </tr>
-                            <tr>
+                            <tr class="<?php echo $nilai_max_wp == $data_vektor_v['v2'] ? 'max' : ''  ?>">
                                 <td>2</td>
                                 <td>V2</td>
                                 <td><?php echo $data_vektor_v['v2']; ?></td>
                             </tr>
-                            <tr>
+                            <tr class="<?php echo $nilai_max_wp == $data_vektor_v['v3'] ? 'max' : ''  ?>">
                                 <td>3</td>
                                 <td>V3</td>
                                 <td><?php echo $data_vektor_v['v3']; ?></td>
                             </tr>
-                            <tr>
+                            <tr class="<?php echo $nilai_max_wp == $data_vektor_v['v4'] ? 'max' : ''  ?>">
                                 <td>4</td>
                                 <td>V4</td>
                                 <td><?php echo $data_vektor_v['v4']; ?></td>
                             </tr>
-                            <tr>
+                            <tr class="<?php echo $nilai_max_wp == $data_vektor_v['v5'] ? 'max' : ''  ?>">
                                 <td>5</td>
                                 <td>V5</td>
                                 <td><?php echo $data_vektor_v['v5']; ?></td>

@@ -1,4 +1,5 @@
 <?php
+    
     include '../../../config/koneksi/koneksi.php';
     
     $id_rekomendasi_karyawan  = (!empty($_GET['rekomendasi_karyawan'])) ? $_GET['rekomendasi_karyawan'] : '';
@@ -114,3 +115,37 @@
     )";
 
     $query  = mysqli_query($db, $sql);
+
+    $nilai_max_wp = max(
+        $v1,
+        $v2,
+        $v3,
+        $v4,
+        $v5
+    );
+
+    if ($v1 == $nilai_max_wp) {
+        $index = 0;
+    }else if ($v2== $nilai_max_wp) {
+        $index = 1;
+    }else if ($v3 == $nilai_max_wp) {
+        $index = 2;
+    }else if ($v4 == $nilai_max_wp) {
+        $index = 3;
+    }else if ($v5 == $nilai_max_wp) {
+        $index = 4;
+    }
+
+    $sql ="SELECT * FROM tbl_karyawan AS a INNER JOIN tbl_alternatif AS b ON a.id_karyawan = b.id_karyawan  where b.id_rekomendasi_karyawan='$id_rekomendasi_karyawan'";
+    
+    $query = mysqli_query($db, $sql);
+    $nama_alternatif_wp = '';
+
+    $no = 0;
+    while ($data = mysqli_fetch_array($query)){
+        if ($no == $index) {
+            $nama_alternatif_wp = $data['nama_lengkap'];
+        }
+
+        $no++;
+    }

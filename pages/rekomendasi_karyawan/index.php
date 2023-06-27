@@ -43,7 +43,10 @@
                             <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Karyawan</th>
+                                <th>Nama Karyawan SAW</th>
+                                <th>Nama Karyawan WP</th>
+                                <th>Nilai Karyawan SAW</th>
+                                <th>Nilai Karyawan WP</th>
                                 <th>Periode Bulan</th>
                                 <th>Periode Tahun</th>
                                 <th>Waktu Input</th>
@@ -54,8 +57,7 @@
 
                             <?php
                                 $no = 1;
-                                $sql ="SELECT * FROM tbl_rekomendasi_karyawan AS a
-                                       INNER JOIN tbl_karyawan AS b ON a.id_karyawan = b.id_karyawan
+                                $sql ="SELECT * FROM tbl_hasil_rekomendasi AS a
                                        WHERE a.delete_at='0'" ;
                                 $query = mysqli_query($db, $sql);
 
@@ -64,14 +66,16 @@
                             ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><?php echo $users['nama_lengkap']; ?></td>
+                                <td><?php echo $users['nama_karyawan_saw']; ?></td>
+                                <td><?php echo $users['nama_karyawan_wp']; ?></td>
+                                <td><?php echo $users['nilai_karyawan_saw']; ?></td>
+                                <td><?php echo $users['nilai_karyawan_wp']; ?></td>
                                 <td><?php echo $users['periode_bulan']; ?></td>
                                 <td><?php echo $users['periode_tahun']; ?></td>
                                 <td><?php echo $users['created_time'];?></td>
                                 <td>
-                                    <a href="edit.php?id=<?php echo $users['id_rekomendasi_karyawan']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                    <!-- <a href="detail.php?id=<?php echo $users['id_rekomendasi_karyawan']?>" class="btn btn-sm btn-info">Detail</a> -->
-                                    <a href="controllers/delete.php?id=<?php echo $users['id_rekomendasi_karyawan']; ?>"class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="hasil.php?rekomendasi_karyawan=<?php echo $users['id_rekomendasi_karyawan']; ?>" class="badge badge-info mb-2">Detail Penilaian</a>
+                                    <a href="controllers/delete.php?id=<?php echo $users['id_rekomendasi_karyawan']; ?>"class="badge badge-danger">Delete</a>
                                 </td>
                             </tr>
                             <?php }?>
