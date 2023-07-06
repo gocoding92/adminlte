@@ -19,7 +19,7 @@
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      <!-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -28,7 +28,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -53,18 +53,18 @@
             </ul>
           </li> -->
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="../dashboard" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dashboard
               </p>
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a href="../rekomendasi_karyawan" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-user-circle"></i>
               <p>
                 Rekomendasi Karyawan
               </p>
@@ -73,7 +73,7 @@
 
           <li class="nav-item">
             <a href="../data_karyawan" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 Data Karyawan
               </p>
@@ -82,56 +82,57 @@
 
           <li class="nav-item">
             <a href="../data_toko" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-list"></i>
               <p>
                Data Toko
               </p>
             </a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="../data_bobot" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                Data Bobot
               </p>
             </a>
-          </li>
+          </li> -->
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="../kriteria" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                Kriteria
               </p>
             </a>
-          </li>
+          </li> -->
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="../sub_kriteria" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                Sub Kriteria
               </p>
             </a>
-          </li>
+          </li> -->
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="../sample-modal" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Sampel Modal
               </p>
             </a>
-          </li>
-          <li class="nav-item">
+          </li> -->
+
+          <!-- <li class="nav-item">
             <a href="../sample-link" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Sampel Link
               </p>
             </a>
-          </li>
+          </li> -->
 
         </ul>
       </nav>

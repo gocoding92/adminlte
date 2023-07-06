@@ -2,10 +2,10 @@
 
 include '../../../config/koneksi/koneksi.php';
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (isset($_GET['id_rekomendasi_karyawan'])) {
+    $id_rekomendasi_karyawan = $_GET['id_rekomendasi_karyawan'];
 
-    $sql    = "UPDATE tbl_karyawan SET delete_at=1 WHERE id_karyawan=$id ";
+    $sql    = "UPDATE tbl_hasil_rekomendasi SET delete_at=1 WHERE id_rekomendasi_karyawan='$id_rekomendasi_karyawan' ";
     $query  = mysqli_query($db, $sql);
     
     if ($query){

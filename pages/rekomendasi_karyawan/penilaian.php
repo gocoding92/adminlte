@@ -77,12 +77,72 @@
                             <tr>
                                 <td><?php echo $no=$no+1; ?></td>
                                 <td><?php echo $users['nama_lengkap']; ?></td>
-                                <td><input type="text" class="form-control" name="keterlambatan[]"></td>
-                                <td><input type="text" class="form-control" name="jam_kerja[]"></td>
-                                <td><input type="text" class="form-control" name="overtime[]"></td>
-                                <td><input type="text" class="form-control" name="teguran[]"></td>
-                                <td><input type="text" class="form-control" name="lama_bekerja[]"></td>
-                                <td><input type="text" class="form-control" name="absensi[]"></td>
+                                <td>
+                                    <!-- <input type="text" class="form-control" name="keterlambatan[]"> -->
+                                    <select name="keterlambatan[]" class="form-control">
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <!-- <input type="text" class="form-control" name="jam_kerja[]"> -->
+                                    <select name="jam_kerja[]" class="form-control">
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <!-- <input type="text" class="form-control" name="overtime[]"> -->
+                                    <select name="overtime[]" class="form-control">
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <!-- <input type="text" class="form-control" name="teguran[]"> -->
+                                    <select name="teguran[]" class="form-control">
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <!-- <input type="text" class="form-control" name="lama_bekerja[]"> -->
+                                    <select name="lama_bekerja[]" class="form-control">
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <!-- <input type="text" class="form-control" name="absensi[]"> -->
+                                    <select name="absensi[]" class="form-control">
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
                             </tr>
 
                             <?php } ?>

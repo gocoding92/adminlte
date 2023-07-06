@@ -75,7 +75,7 @@
                                 <td><?php echo $users['created_time'];?></td>
                                 <td>
                                     <a href="hasil.php?rekomendasi_karyawan=<?php echo $users['id_rekomendasi_karyawan']; ?>" class="badge badge-info mb-2">Detail Penilaian</a>
-                                    <a href="controllers/delete.php?id=<?php echo $users['id_rekomendasi_karyawan']; ?>"class="badge badge-danger">Delete</a>
+                                    <a href="controllers/delete.php?id_rekomendasi_karyawan=<?php echo $users['id_rekomendasi_karyawan']; ?>" class="badge badge-danger">Delete</a>
                                 </td>
                             </tr>
                             <?php }?>
