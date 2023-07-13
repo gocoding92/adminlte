@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index2.html"><b>Sistem Pakar Penyakit Tanaman Cabai</b></a>
+    <b>Sistem Pakar Penyakit Tanaman Cabai</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -26,7 +26,7 @@
 
       <form action="controllers/login.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" name="username" class="form-control" placeholder="Email">
+          <input type="text" name="username" class="form-control" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

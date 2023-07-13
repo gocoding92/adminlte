@@ -29,11 +29,11 @@
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h3 class="card-title">Data Sampel Link</h3>
+                                            <h3 class="card-title">Data Gejala</h3>
                                         </div>
                                         <div class="col-md-6">
                                             <a href="create.php" class="btn btn-sm btn-primary float-right">
-                                                <i class="fa fa-plus"></i>&nbsp; Cek Penyakit
+                                                <i class="fa fa-plus"></i>&nbsp; Tambah Gejala
                                             </a>
                                         </div>
                                     </div>
@@ -54,7 +54,8 @@
 
                                             <?php
                                             $no = 1;
-                                            $sql = "SELECT * FROM tbl_gejala where delete_at='0'";
+                                            // $sql = "SELECT * FROM tbl_gejala where delete_at='0'";
+                                            $sql = "SELECT * FROM tbl_gejala AS a LEFT JOIN tbl_jenis_tanaman AS b ON a.id_jenis_tanaman = b.id_jenis_tanaman where a.delete_at='0'";
                                             $query = mysqli_query($db, $sql);
 
                                             while ($data = mysqli_fetch_array($query)) {
@@ -62,7 +63,7 @@
                                             ?>
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>
-                                                    <td><?php echo $data['id_jenis_tanaman']; ?></td>
+                                                    <td><?php echo $data['jenis_tanaman']; ?></td>
                                                     <td><?php echo $data['gejala']; ?></td>
                                                     <td><?php echo $data['created_time']; ?></td>
                                                     <td>

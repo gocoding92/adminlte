@@ -12,7 +12,9 @@ if (isset($_POST)) {
                                 SET jenis_tanaman = '$jenis_tanaman'
                                     WHERE id_jenis_tanaman='$id'";
     $query  = mysqli_query($db, $sql);
-    
+
+    var_dump($query);
+    exit;
     if ($query){
         header('Location: ../index.php');
     }

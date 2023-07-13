@@ -29,11 +29,11 @@
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h3 class="card-title">Data Sampel Link</h3>
+                                            <h3 class="card-title">Data Penyakit Tanaman Cabai</h3>
                                         </div>
                                         <div class="col-md-6">
                                             <a href="create.php" class="btn btn-sm btn-primary float-right">
-                                                <i class="fa fa-plus"></i>&nbsp; Cek Penyakit
+                                                <i class="fa fa-plus"></i>&nbsp; Tambah Data Penyakit
                                             </a>
                                         </div>
                                     </div>

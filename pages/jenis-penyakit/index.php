@@ -29,7 +29,7 @@
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h3 class="card-title">Data Sampel Link</h3>
+                                            <h3 class="card-title">Data Jenis Penyakit</h3>
                                         </div>
                                         <div class="col-md-6">
                                             <a href="create.php" class="btn btn-sm btn-primary float-right">

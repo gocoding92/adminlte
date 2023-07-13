@@ -11,7 +11,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../../dist/img/Boy.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="../../dist/img/nopal.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Nauval Banyu</a>
@@ -82,7 +82,7 @@
 
           <li class="nav-item">
             <a href="../gejala" class="nav-link">
-              <i class="nav-icon fas fa-list"></i>
+              <i class="nav-icon fab fa-accessible-icon"></i>
               <p>
                Gejala
               </p>

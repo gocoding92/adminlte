@@ -29,11 +29,11 @@
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h3 class="card-title">Data Sampel Link</h3>
+                                            <h3 class="card-title">Data Diagnosa</h3>
                                         </div>
                                         <div class="col-md-6">
                                             <a href="create.php" class="btn btn-sm btn-primary float-right">
-                                                <i class="fa fa-plus"></i>&nbsp; Cek Penyakit
+                                                <i class="fa fa-plus"></i>&nbsp; Tambah Diagnosa
                                             </a>
                                         </div>
                                     </div>
@@ -59,7 +59,16 @@
 
                                             <?php
                                             $no = 1;
-                                            $sql = "SELECT * FROM tbl_diagnosa where delete_at='0'";
+                                            $sql = "
+                                                        SELECT * FROM tbl_diagnosa AS a 
+                                                        LEFT JOIN tbl_jenis_tanaman AS b 
+                                                        ON a.id_jenis_tanaman = b.id_jenis_tanaman 
+                                                        LEFT JOIN tbl_jenis_penyakit AS c 
+                                                        ON a.id_jenis_penyakit = c.id_jenis_penyakit 
+                                                        LEFT JOIN tbl_gejala AS d 
+                                                        ON a.id_gejala = d.id_gejala 
+                                                        where a.delete_at='0'"
+                                                    ;
                                             $query = mysqli_query($db, $sql);
 
                                             while ($data = mysqli_fetch_array($query)) {
@@ -67,9 +76,9 @@
                                             ?>
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>
-                                                    <td><?php echo $data['id_jenis_tanaman']; ?></td>
-                                                    <td><?php echo $data['id_jenis_penyakit']; ?></td>
-                                                    <td><?php echo $data['id_gejala']; ?></td>
+                                                    <td><?php echo $data['jenis_tanaman']; ?></td>
+                                                    <td><?php echo $data['jenis_penyakit']; ?></td>
+                                                    <td><?php echo $data['gejala']; ?></td>
                                                     <td><?php echo $data['kultur_teknis']; ?></td>
                                                     <td><?php echo $data['fisik_mekanis']; ?></td>
                                                     <td><?php echo $data['kimiawi']; ?></td>

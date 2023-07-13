@@ -14,7 +14,7 @@
             <?php include '../templates/header.php'; ?>
             <!-- // side menu -->
             <?php include '../templates/menu.php'; ?>
-       
+
             <!-- // content -->
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
@@ -41,45 +41,13 @@
                         <div class="card-body">
                             <form action="controllers/create.php" method="post">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="">Nama</label>
-                                            <input type="text" class="form-control" name="nama" placeholder="masukkan Nama">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                    <div class="form-group">
-                                            <label for="">Umur</label>
-                                            <input type="number" class="form-control" name="umur" placeholder="masukkan Umur">
-                                    </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="">Tanggal Lahir</label>
-                                            <input type="date" class="form-control" name="tgl_lahir" placeholder="Masukkan Tanggal Lahir">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="">Status</label>
-                                            <input type="text" class="form-control" name="status" placeholder="Masukkan Status">
+                                            <label for="">Jenis Tanaman</label>
+                                            <input type="text" class="form-control" name="jenis_tanaman" required>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="">Alamat</label>
-                                            <textarea name="alamat" cols="20" rows="6" class="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
                             <div class="modal-footer justify-content-between">
                                 <button type="reset" class="btn btn-default" data-dismiss="modal">Tutup</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -37,6 +37,15 @@
                             </div>
                         </div>
 
+                        
+                        <?php
+                            $no = 1;
+                            // $sql = "SELECT * FROM tbl_gejala where delete_at='0'";
+                            $sql = "SELECT * FROM tbl_jenis_tanaman where delete_at='0'";
+                            $query = mysqli_query($db, $sql);
+
+                            ?>
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             <form action="controllers/create.php" method="post">
@@ -44,7 +53,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Jenis Tanaman</label>
-                                            <input type="number" class="form-control" name="id_jenis_tanaman" placeholder="Masukkan Jenis Tanaman" required>
+                                           <select name="id_jenis_tanaman" id="" class="form-control">
+                                                <option value="0">[Silahkan Pilih]</option>
+                                              <?php while ($data = mysqli_fetch_array($query)) { ?>
+                                                <option value="<?php echo $data['id_jenis_tanaman'] ?>"><?php echo $data['jenis_tanaman']; ?></option>
+                                              <?php } ?>
+                                           </select>
                                         </div>
                                     </div>
 

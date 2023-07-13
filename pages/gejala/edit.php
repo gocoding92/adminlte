@@ -24,9 +24,14 @@
                     $sql = "SELECT * FROM tbl_gejala WHERE id_gejala=$id ";
                     $query = mysqli_query($db, $sql);
                     $data = mysqli_fetch_assoc($query);
+
+                    $sql_jenis_tanaman = "SELECT * FROM tbl_jenis_tanaman";
+                    $query_jenis_tanaman = mysqli_query($db, $sql_jenis_tanaman);
+
+                    
                 }
             ?>
-       
+
             <!-- // content -->
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
@@ -57,10 +62,14 @@
                                         <div class="form-group">
                                             <label for="">Jenis Tanaman</label>
                                             <!-- hidden id -->
-                                            <input type="hidden" name="id" value="<?php echo $data['id_gejala']; ?>">
+                                            <input type="hidden" name="id" value="<?php echo $data['id_jenis_tanaman']; ?>">
+                                            <select name="jenis_tanaman" id="" class="form-control">
+                                                <option value="0">[Silahkan Pilih]</option>
+                                                <?php while ($data = mysqli_fetch_array($query_jenis_tanaman)) { ?>
+                                                    <option <?php echo $data['id_jenis_tanaman'] == $data['id_jenis_tanaman'] ? 'selected' : null  ?> value="<?php echo $data['id_jenis_tanaman']; ?>"><?php echo $data['jenis_tanaman']; ?></option>
+                                                <?php } ?>
+                                            </select>
 
-
-                                            <input type="text" name="id_jenis_tanaman" class="form-control" value="<?php echo $data['id_jenis_tanaman']; ?>">
                                         </div>
                                     </div>
 
