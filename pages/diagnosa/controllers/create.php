@@ -13,12 +13,12 @@ if (isset($_POST)) {
 
 
     $sql    = "INSERT INTO tbl_diagnosa (id_jenis_tanaman, id_jenis_penyakit, id_gejala, kultur_teknis, fisik_mekanis, kimiawi, hayati) VALUES ('$id_jenis_tanaman', '$id_jenis_penyakit', '$id_gejala', '$kultur_teknis', '$fisik_mekanis', '$kimiawi', '$hayati')";
-                               
+
     $query  = mysqli_query($db, $sql);
-    
-    if ($query){
+
+    if ($query) {
         header('Location: ../index.php');
     }
-}else{
+} else {
     header('Location: ../index.php');
 }

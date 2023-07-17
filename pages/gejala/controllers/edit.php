@@ -12,10 +12,10 @@ if (isset($_POST)) {
                                     gejala           = '$gejala'
                                     WHERE id_gejala='$id' ";
     $query  = mysqli_query($db, $sql);
-    
-    if ($query){
+
+    if ($query) {
         header('Location: ../index.php');
     }
-}else{
+} else {
     header('Location: ../index.php');
 }

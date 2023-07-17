@@ -3,7 +3,7 @@
 include '../../../config/koneksi/koneksi.php';
 
 if (isset($_POST)) {
-    $id         = $_POST['id'];
+    $id                    = $_POST['id'];
     $id_jenis_tanaman      = $_POST['id_jenis_tanaman'];
     $id_jenis_penyakit     = $_POST['id_jenis_penyakit'];
     $id_gejala             = $_POST['id_gejala'];

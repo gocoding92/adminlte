@@ -58,21 +58,23 @@
                                         <tbody>
 
                                             <?php
-                                            $no = 1;
-                                            $sql = "
-                                                        SELECT * FROM tbl_diagnosa AS a 
-                                                        LEFT JOIN tbl_jenis_tanaman AS b 
-                                                        ON a.id_jenis_tanaman = b.id_jenis_tanaman 
-                                                        LEFT JOIN tbl_jenis_penyakit AS c 
-                                                        ON a.id_jenis_penyakit = c.id_jenis_penyakit 
-                                                        LEFT JOIN tbl_gejala AS d 
-                                                        ON a.id_gejala = d.id_gejala 
-                                                        where a.delete_at='0'"
-                                                    ;
-                                            $query = mysqli_query($db, $sql);
+                                                $no = 1;
+                                                $sql = "
+                                                            SELECT * FROM tbl_diagnosa AS a 
+                                                            LEFT JOIN tbl_jenis_tanaman AS b 
+                                                            ON a.id_jenis_tanaman = b.id_jenis_tanaman 
 
-                                            while ($data = mysqli_fetch_array($query)) {
+                                                            LEFT JOIN tbl_jenis_penyakit AS c 
+                                                            ON a.id_jenis_penyakit = c.id_jenis_penyakit 
 
+                                                            LEFT JOIN tbl_gejala AS d 
+                                                            ON a.id_gejala = d.id_gejala 
+                                                            
+                                                            where a.delete_at='0'"
+                                                        ;
+                                                $query = mysqli_query($db, $sql);
+
+                                                while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>

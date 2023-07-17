@@ -38,19 +38,17 @@
                         </div>
 
                         <?php 
-                        
-                        $no = 1;
-                        // query Jenis Tanaman
-                        $sql_jenis_tanaman = "SELECT * FROM tbl_jenis_tanaman WHERE delete_at='0'";
-                        $query_jenis_tanaman = mysqli_query($db, $sql_jenis_tanaman);
-                        
-                        // query Jenis Penyakit
-                        $sql_jenis_penyakit = "SELECT * FROM tbl_jenis_penyakit WHERE delete_at='0'";
-                        $query_jenis_penyakit = mysqli_query($db, $sql_jenis_penyakit);
+                            // query Jenis Tanaman
+                            $sql_jenis_tanaman = "SELECT * FROM tbl_jenis_tanaman WHERE delete_at='0'";
+                            $query_jenis_tanaman = mysqli_query($db, $sql_jenis_tanaman);
+                            
+                            // query Jenis Penyakit
+                            $sql_jenis_penyakit = "SELECT * FROM tbl_jenis_penyakit WHERE delete_at='0'";
+                            $query_jenis_penyakit = mysqli_query($db, $sql_jenis_penyakit);
 
-                         // query gejala
-                         $sql_gejala = "SELECT * FROM tbl_gejala WHERE delete_at='0'";
-                         $query_gejala = mysqli_query($db, $sql_gejala);
+                            // query gejala
+                            $sql_gejala = "SELECT * FROM tbl_gejala WHERE delete_at='0'";
+                            $query_gejala = mysqli_query($db, $sql_gejala);
                         
                         ?>
                         <!-- /.card-header -->
@@ -61,20 +59,19 @@
                                         <div class="form-group">
                                             <label for="">Jenis Tanaman</label>
 
-                                            <select name="jenis_tanaman" id="" class="form-control">
+                                            <select name="id_jenis_tanaman" id="" class="form-control">
                                                 <option value="0">[Silahkan Pilih]</option>
                                                 <?php while ($data_jenis_tanaman = mysqli_fetch_array($query_jenis_tanaman)) { ?>
                                                     <option value="<?php echo $data_jenis_tanaman['id_jenis_tanaman'];  ?>"><?php echo $data_jenis_tanaman['jenis_tanaman']; ?></option>
                                                 <?php } ?>
                                             </select>
-                                            <!-- <input type="text" class="form-control" name="id_jenis_tanaman" placeholder="masukkan Jenis Tanaman"> -->
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                     <div class="form-group">
                                             <label for="">Jenis Penyakit</label>
-                                            <select name="" id="" class="form-control">
+                                            <select name="id_jenis_penyakit" id="" class="form-control">
                                                     <option value="0">[Silahkan Pilih]</option>
                                                     <?php while ($data_jenis_penyakit = mysqli_fetch_array($query_jenis_penyakit)) {?>
                                                         <option value="<?php echo $data_jenis_penyakit['id_jenis_penyakit'] ?>"><?php echo $data_jenis_penyakit['jenis_penyakit']; ?></option>
@@ -88,7 +85,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Gejala</label>
-                                            <select name="" id="" class="form-control">
+                                            <select name="id_gejala" id="" class="form-control">
                                                     <option value="0">[Silahkan Pilih]</option>
                                                     <?php while ($data_gejala = mysqli_fetch_array($query_gejala)) {?>
                                                         <option value="<?php echo $data_gejala['id_gejala'] ?>"><?php echo $data_gejala['gejala']; ?></option>
