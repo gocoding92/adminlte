@@ -54,8 +54,11 @@
 
                                             <?php
                                             $no = 1;
-                                            // $sql = "SELECT * FROM tbl_gejala where delete_at='0'";
-                                            $sql = "SELECT * FROM tbl_gejala AS a LEFT JOIN tbl_jenis_tanaman AS b ON a.id_jenis_tanaman = b.id_jenis_tanaman where a.delete_at='0'";
+                                            $sql = "
+                                                        SELECT * FROM tbl_gejala AS a 
+                                                        LEFT JOIN tbl_jenis_tanaman AS b ON a.id_jenis_tanaman = b.id_jenis_tanaman 
+
+                                                        where a.delete_at='0'";
                                             $query = mysqli_query($db, $sql);
 
                                             while ($data = mysqli_fetch_array($query)) {

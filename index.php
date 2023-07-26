@@ -78,5 +78,15 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<br>
+<footer class="container-fluid text-center
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;">
+        <marquee behavior="alternate" scrollamount="5">
+            <h3>Copyright Nauval Banyu Arrachman </h3>
+        </marquee>
+    </footer>
 </body>
 </html>

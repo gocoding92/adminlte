@@ -8,10 +8,56 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Top Navigation</title>
+    <title>DIAGNOSA PENYAKIT</title>
 
     <!--link-rel-->
     <?php include '../templates/link-rel.php'; ?>
+
+    <?php
+
+    if (!empty($_POST)) {
+
+
+        $jenis_tanaman = $_POST['id_jenis_tanaman'];
+
+
+        echo "<pre>";
+
+        $dataPush = array();
+        for ($i = 0; $i < count($jenis_tanaman); $i++) {
+
+            // $tampil = "select DISTINCT p.idpenyakit, p.namapenyakit, p.jenistanaman from basispengetahuan b, penyakit p where b.gejala='$gejala[$x]' and p.namapenyakit=b.namapenyakit group by namapenyakit";
+            // $result = mysqli_query($konek_db, $tampil);
+            // $hasil  = mysqli_fetch_array($result);
+
+            // $sql = "SELECT DISTINCT id_jenis_tanaman, jenis_penyakit FROM tbl_diagnosa WHERE id_jenis_tanaman='$jenis_tanaman[$i]' AND delete_at = '0' GROUP BY jenis_penyakit ";
+            // $query = mysqli_query($db, $sql);
+            // $data = mysqli_fetch_array($query);
+
+            // $dataPenyakit = $data;
+            // if ($data['id_jenis_tanaman'] == $jenis_tanaman[$i]) {
+            //     if (count($data) > 1) {
+            //         $dataPenyakit = $data[0];
+            //     }
+            // }
+
+            // var_dump($dataPenyakit);
+        }
+
+        $sql = "SELECT DISTINCT id_jenis_tanaman, jenis_penyakit FROM tbl_diagnosa WHERE id_jenis_tanaman='17' AND delete_at = '0' GROUP BY jenis_penyakit ";
+        $query = mysqli_query($db, $sql);
+
+        while ($data = mysqli_fetch_array($query)) {
+            var_dump($data);
+        }
+
+
+
+        exit;
+    }
+
+
+    ?>
 
 </head>
 
@@ -212,29 +258,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="col-lg-12">
                             <div class="card">
 
-                                <?php
-                                $sqlTanaman = "SELECT * FROM tbl_jenis_tanaman where delete_at='0'";
-                                $queryTanaman = mysqli_query($db, $sqlTanaman);
+                                <form action="" method="post">
+                                    <?php
+                                    $sqlTanaman = "SELECT * FROM tbl_jenis_tanaman where delete_at='0'";
+                                    $queryTanaman = mysqli_query($db, $sqlTanaman);
 
-                                ?>
+                                    ?>
 
-                                <div class="card-body">
-                                    <?php while ($dataTanaman = mysqli_fetch_array($queryTanaman)) : ?>
+                                    <div class="card-body">
+                                        <?php while ($dataTanaman = mysqli_fetch_array($queryTanaman)) : ?>
 
-                                        <h5 class="mb-3 mt-3"><?php echo $dataTanaman['jenis_tanaman'] ?></h5>
+                                            <h5 class="mb-3 mt-3"><?php echo $dataTanaman['jenis_tanaman'] ?></h5>
 
-                                        <?php
-                                        $sqlGejala = "SELECT * FROM tbl_gejala where delete_at='0' AND id_jenis_tanaman=" . $dataTanaman['id_jenis_tanaman'] . " ";
-                                        $queryGejala = mysqli_query($db, $sqlGejala);
-                                        ?>
-                                        <?php while ($dataGejala = mysqli_fetch_array($queryGejala)) : ?>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox">
-                                                <label class="form-check-label"><?php echo $dataGejala['gejala'] ?></label>
-                                            </div>
+                                            <?php
+                                            $sqlGejala = "SELECT * FROM tbl_gejala where delete_at='0' AND id_jenis_tanaman=" . $dataTanaman['id_jenis_tanaman'] . " ";
+                                            $queryGejala = mysqli_query($db, $sqlGejala);
+                                            ?>
+                                            <?php while ($dataGejala = mysqli_fetch_array($queryGejala)) : ?>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="id_jenis_tanaman[]" value="<?php echo $dataTanaman['id_jenis_tanaman'] ?>">
+                                                    <label class="form-check-label"><?php echo $dataGejala['gejala'] ?></label>
+                                                </div>
+                                            <?php endwhile; ?>
                                         <?php endwhile; ?>
-                                    <?php endwhile; ?>
-                                </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i>&nbsp; Cek Penyakit</button>
+
+                                </form>
+
+
+
 
 
                             </div>

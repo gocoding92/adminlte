@@ -85,80 +85,62 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Jenis Penyakit</label>
-                                                    <select name="id_jenis_penyakit" id="" class="form-control">
-                                                        <option value="0">[Silahkan Pilih]</option>
-                                                        <?php while ($data_jenis_penyakit = mysqli_fetch_array($query_jenis_penyakit)) { ?>
-                                                            <option <?php echo $data_jenis_penyakit['id_jenis_penyakit'] == $data['id_jenis_penyakit'] ? 'selected' : null  ?> value="<?php echo $data_jenis_penyakit['id_jenis_penyakit'] ?>"><?php echo $data_jenis_penyakit['jenis_penyakit']; ?></option>
-                                                        <?php } ?>
-                                                    </select>
+                                                    <input type="text" class="form-control" name="jenis_penyakit" placeholder="Masukkan Jenis Penyakit" value="<?php echo $data['jenis_penyakit']; ?>">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="">Gejala</label>
-                                                    <select name="id_gejala" id="" class="form-control">
-                                                        <option value="0">[Silahkan Pilih]</option>
-                                                        <?php while ($data_gejala = mysqli_fetch_array($query_gejala)) { ?>
-                                                            <option <?php echo $data_gejala['id_gejala'] == $data['id_gejala'] ? 'selected' : null  ?> value="<?php echo $data_gejala['id_gejala'] ?>"><?php echo $data_gejala['gejala']; ?></option>
-                                                        <?php } ?>
-                                                    </select>
-                                                </div>
-                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Kultur Teknis</label>
                                                     <input type="text" class="form-control" name="kultur_teknis" placeholder="Masukkan kultur teknis" value="<?php echo $data['kultur_teknis']; ?>">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Fisik Mekanis</label>
                                                     <input type="text" name="fisik_mekanis" placeholder="Masukkan Fisik Mekanis" class="form-control" value="<?php echo $data['fisik_mekanis']; ?>">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="">Kimiawi</label>
-                                                    <input type="text" class="form-control" name="kimiawi" placeholder="Masukkan kimiawi" value="<?php echo $data['kimiawi']; ?>">
-                                                </div>
-                                            </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="">Hayati</label>
-                                                    <input type="text" class="form-control" name="hayati" placeholder="Masukkan hayati" value="<?php echo $data['hayati']; ?>">
 
-                                                </div>
-                                            </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Kimiawi</label>
+                                            <input type="text" class="form-control" name="kimiawi" placeholder="Masukkan kimiawi" value="<?php echo $data['kimiawi']; ?>">
                                         </div>
-                                        <div class="modal-footer justify-content-between">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Hayati</label>
+                                            <input type="text" class="form-control" name="hayati" placeholder="Masukkan hayati" value="<?php echo $data['hayati']; ?>">
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
-                                <!-- /.card-body -->
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                                </form>
                             </div>
-                            <!-- /.card -->
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.col -->
+                        <!-- /.card -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /.col -->
                 </div>
-                <!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
+                <!-- /.row -->
         </div>
+        <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
 
-        <!--footer-->
-        <?php include '../templates/footer.php' ?>
-        <!-- // script-->
-        <?php include '../templates/script.php'; ?>
+    <!--footer-->
+    <?php include '../templates/footer.php' ?>
+    <!-- // script-->
+    <?php include '../templates/script.php'; ?>
 
     </div>
 </body>

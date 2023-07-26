@@ -46,7 +46,6 @@
                                                 <th>Nomor</th>
                                                 <th>Jenis Tanaman</th>
                                                 <th>Jenis Penyakit</th>
-                                                <th>Gejala</th>
                                                 <th>Kultur Teknis</th>
                                                 <th>Fisik Mekanis</th>
                                                 <th>Kimiawi</th>
@@ -58,33 +57,25 @@
                                         <tbody>
 
                                             <?php
-                                                $no = 1;
-                                                $sql = "
+                                            $no = 1;
+                                            $sql = "
                                                             SELECT * FROM tbl_diagnosa AS a 
                                                             LEFT JOIN tbl_jenis_tanaman AS b 
                                                             ON a.id_jenis_tanaman = b.id_jenis_tanaman 
 
-                                                            LEFT JOIN tbl_jenis_penyakit AS c 
-                                                            ON a.id_jenis_penyakit = c.id_jenis_penyakit 
+                                                            where a.delete_at='0'";
+                                            $query = mysqli_query($db, $sql);
 
-                                                            LEFT JOIN tbl_gejala AS d 
-                                                            ON a.id_gejala = d.id_gejala 
-                                                            
-                                                            where a.delete_at='0'"
-                                                        ;
-                                                $query = mysqli_query($db, $sql);
-
-                                                while ($data = mysqli_fetch_array($query)) {
+                                            while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>
                                                     <td><?php echo $data['jenis_tanaman']; ?></td>
                                                     <td><?php echo $data['jenis_penyakit']; ?></td>
-                                                    <td><?php echo $data['gejala']; ?></td>
                                                     <td><?php echo $data['kultur_teknis']; ?></td>
                                                     <td><?php echo $data['fisik_mekanis']; ?></td>
                                                     <td><?php echo $data['kimiawi']; ?></td>
-                                                    <td><?php echo $data['hayati']; ?></td> 
+                                                    <td><?php echo $data['hayati']; ?></td>
                                                     <td><?php echo $data['created_time']; ?></td>
                                                     <td>
                                                         <a href="edit.php?id=<?php echo $data['id_diagnosa']; ?>" class="btn btn-sm btn-primary">Edit</a>
@@ -114,5 +105,8 @@
 
     </div>
 </body>
+
+
+
 
 </html>

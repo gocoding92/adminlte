@@ -17,7 +17,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" href="../../index.php">
-          <i class="fas fa-sign-out-alt"></i>
+          <i class="fas fa-sign-out-alt">Log Out</i>
         </a>
       </li>
     </ul>

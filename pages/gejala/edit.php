@@ -28,6 +28,9 @@
             $data = mysqli_fetch_assoc($query);
 
 
+            $sql_jenis_penyakit = "SELECT * FROM tbl_jenis_penyakit";
+            $query_jenis_penyakit = mysqli_query($db, $sql_jenis_penyakit);
+
             $sql_jenis_tanaman = "SELECT * FROM tbl_jenis_tanaman";
             $query_jenis_tanaman = mysqli_query($db, $sql_jenis_tanaman);
         }
@@ -59,7 +62,7 @@
                                 <div class="card-body">
                                     <form action="controllers/edit.php" method="post">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                        <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Jenis Tanaman</label>
                                                     <!-- hidden id -->
@@ -74,19 +77,21 @@
 
                                                 </div>
                                             </div>
-
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Gejala</label>
                                                     <input type="text" name="gejala" class="form-control" value="<?php echo $data['gejala']; ?>">
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="modal-footer justify-content-between">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                           
                                         </div>
+                                </div>
+
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
                                     </form>
                                 </div>
                                 <!-- /.card-body -->

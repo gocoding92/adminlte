@@ -8,7 +8,7 @@ if (isset($_POST)) {
     $gejala           = $_POST['gejala'];
 
     $sql    = "UPDATE tbl_gejala 
-                                SET id_jenis_tanaman = '$id_jenis_tanaman',
+                              SET id_jenis_tanaman = '$id_jenis_tanaman',
                                     gejala           = '$gejala'
                                     WHERE id_gejala='$id' ";
     $query  = mysqli_query($db, $sql);

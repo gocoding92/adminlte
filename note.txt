@@ -50,5 +50,53 @@ db_penyakit_cabai
 
 
 
+1. Login (Done)
+2. Jenis Tanaman Periksa semua CRUD (Done)
+3. Jenis Penyakit Periksa semua CRUD (Done)
+4. Gejala
+  - List table di join dengan jenis tanaman (done)
+  - Button Cek Penyakit = Tambah Gejala (done)
+  - Create Data (Done)
+    -* Form Jenis Tanaman ambil dari master data tbl_jenis_tanaman
+    -* Periksa Submit
+  - Edit Data (Done)
+    -* Form Jenis Tanaman ambil dari master data tbl_jenis_tanaman
+    -* Periksa Submit
+  - Delete Periksa (done)
+5. Diagnosa (OPEN)
+  - List Data Join tbl_tanaman, tbl_penyakit, tbl_gejala
+  - Create Data
+    -* Jenis Tanaman (ambil dari table masing2)
+    -* Jenis Penyakit (ambil dari table masing2)
+    -* Jenis Gejala (ambil dari table masing2)
+    -^ Periksa Submitnya
+  - Edit Data
+    -* Jenis Tanaman (ambil dari table masing2)
+    -* Jenis Penyakit (ambil dari table masing2)
+    -* Jenis Gejala (ambil dari table masing2)
+    -^ Periksa Submitnya
+  - delete
+6. User
+  - Field (id_user, usernmae, password, nama_lengkap, level, waktu_input)
+  - periksa semua crudnya
+
+  ?php
+                                                        $sql = "SELECT * FROM tbl_jenis_tanaman where delete_at='0'";
+                                                        $query = mysqli_query($db, $sql);
+
+                                                        while ($data_jenis_tanaman = mysqli_fetch_array($query)) {
+
+                                                        ?>
+
+                                                            <option 
+                                                                <?php echo $data_jenis_tanaman['id_jenis_tanaman'] == $data['id_jenis_tanaman'] ? 'selected' : null;  ?> 
+                                                                    value="<?php echo $data_jenis_tanaman['id_jenis_tanaman'];  ?>"><?php echo $data_jenis_tanaman['jenis_tanaman'];  ?>
+                                                            </option>
+
+                                                        <?php } ?>
+
+
+
+
 
 

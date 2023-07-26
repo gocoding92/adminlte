@@ -46,14 +46,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Code Penyakit</label>
-                                                    <input type="text" class="form-control" name="code_penyakit" placeholder="Edit Code Penyakit">
+                                                    <input type="text" class="form-control" name="code_penyakit" placeholder="Edit Code Penyakit"required>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Jenis Penyakit</label>
-                                                    <input type="text" class="form-control" name="jenis_penyakit" placeholder="Jenis Penyakit">
+                                                    <input type="text" class="form-control" name="jenis_penyakit" placeholder="Jenis Penyakit"required>
                                                 </div>
                                             </div>
                                         </div>
