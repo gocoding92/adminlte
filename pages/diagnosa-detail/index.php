@@ -212,15 +212,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="content-header">
                 <div class="container">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0"> Top Navigation <small>Example 3.0</small></h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Layout</a></li>
-                                <li class="breadcrumb-item active">Top Navigation</li>
-                            </ol>
+                        <div class="col-sm-12">
+                            <h1 class="m-0">
+                                <center>Detail Diagnosa </center>
+                            </h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -230,97 +225,56 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Main content -->
             <div class="content">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
+                    <div class="card">
+                        <div class="card-body">
 
-                                <form action="" method="post">
-                                    <?php
-                                    $sqlTanaman = "SELECT * FROM tbl_jenis_tanaman where delete_at='0'";
-                                    $queryTanaman = mysqli_query($db, $sqlTanaman);
-
-                                    ?>
-
-                                    <div class="card-body">
-                                        <?php while ($dataTanaman = mysqli_fetch_array($queryTanaman)) : ?>
-
-                                            <h5 class="mb-3 mt-3"><?php echo $dataTanaman['jenis_tanaman'] ?></h5>
-
-                                            <?php
-                                            $sqlGejala = "SELECT * FROM tbl_gejala where delete_at='0' AND id_jenis_tanaman=" . $dataTanaman['id_jenis_tanaman'] . " ";
-                                            $queryGejala = mysqli_query($db, $sqlGejala);
-                                            ?>
-                                            <?php while ($dataGejala = mysqli_fetch_array($queryGejala)) : ?>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="id_gejala[]" value="<?php echo $dataGejala['id_gejala'] ?>">
-                                                    <label class="form-check-label"><?php echo $dataGejala['gejala'] ?></label>
-                                                </div>
-                                            <?php endwhile; ?>
-                                        <?php endwhile; ?>
-
-                                        <br />
-
-                                        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i>&nbsp; Cek Penyakit</button>
-
-                                    </div>
-
-
-                                </form>
-
-
-                                <div class="card-body">
-                                    <table class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="2">
-                                                    <center> HASIL DIAGNOSA </center>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>Code Penyakit</th>
-                                                <th>Nama Penyakit Penyakit</th>
-                                            </tr>
-                                            <?php
-                                            if (!empty($_POST)) {
-                                                $gejala = $_POST['id_gejala'];
-
-                                                echo "<pre>";
-                                                $property_types = array();
-                                                for ($i = 0; $i < count($gejala); $i++) {
-
-                                                    $sql = "SELECT id_penyakit, id_jenis_tanaman, gejala FROM tbl_gejala WHERE id_gejala='$gejala[$i]' AND delete_at = '0' ";
-                                                    $query = mysqli_query($db, $sql);
-
-                                                    while ($data = mysqli_fetch_array($query)) {
-                                                        $sql = "SELECT id_jenis_penyakit, code_penyakit, jenis_penyakit FROM tbl_jenis_penyakit WHERE id_jenis_penyakit=" . $data['id_penyakit'] . " AND delete_at = '0' ";
-                                                        $query_penyakit = mysqli_query($db, $sql);
-                                                        $num_rows = mysqli_num_rows($query_penyakit);
-
-                                                        while ($data_penyakit = mysqli_fetch_array($query_penyakit)) {
-                                                            echo "
-                                                                    <tr>
-                                                                        <td>" . $data_penyakit['code_penyakit'] . "</td>
-                                                                        <td>" . $data_penyakit['jenis_penyakit'] . "</td>
-                                                                    </tr>
-                                                                ";
-                                                        }
-                                                    }
-                                                }
-
-                                                exit;
-                                            }
-                                            ?>
-                                        </thead>
-                                    </table>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Jenis Penyakit</label>
+                                    <input type="text" class="form-control" name="jenis_penyakit" placeholder="Masukkan Jenis Penyakiit" readonly>
                                 </div>
-
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Jenis Tanaman</label>
+                                    <input type="text" class="form-control" name="id_jenis_tanaman" placeholder="Masukkan Jenis Penyakit" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Gejala</label>
+                                    <input type="text" class="form-control" name="gejala" placeholder="Masukkan Gejala" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Kultur Teknis</label>
+                                    <input type="text" class="form-control" name="kultur_teknis" placeholder="Masukkan Kultur Teknis" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Fisik Mekanis</label>
+                                    <input type="text" class="form-control" name="fisik_mekanis" placeholder="Masukkan Fisik Mekanis" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Kimiawi</label>
+                                    <input type="text" class="form-control" name="kimiawi" placeholder="Masukkan kimiawi" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Hayati</label>
+                                    <input type="text" class="form-control" name="hayati" placeholder="Masukkan hayati" readonly>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
+                    </div><!-- /.container-fluid -->
+                </div>
+                <!-- /.content -->
             </div>
-            <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
 

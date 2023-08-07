@@ -45,6 +45,7 @@
                                             <tr>
                                                 <th>Nomor</th>
                                                 <th>Jenis Tanaman</th>
+                                                <th>Jenis Penyakit</th>
                                                 <th>Gejala</th>
                                                 <th>Waktu Input</th>
                                                 <th>Aksi</th>
@@ -57,6 +58,7 @@
                                             $sql = "
                                                         SELECT * FROM tbl_gejala AS a 
                                                         LEFT JOIN tbl_jenis_tanaman AS b ON a.id_jenis_tanaman = b.id_jenis_tanaman 
+                                                        LEFT JOIN tbl_jenis_penyakit AS c ON a.id_penyakit = c.id_jenis_penyakit 
 
                                                         where a.delete_at='0'";
                                             $query = mysqli_query($db, $sql);
@@ -67,6 +69,7 @@
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>
                                                     <td><?php echo $data['jenis_tanaman']; ?></td>
+                                                    <td><?php echo $data['jenis_penyakit']; ?></td>
                                                     <td><?php echo $data['gejala']; ?></td>
                                                     <td><?php echo $data['created_time']; ?></td>
                                                     <td>

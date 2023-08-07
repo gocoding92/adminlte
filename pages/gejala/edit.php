@@ -79,6 +79,18 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
+                                                    <label for="">Jenis Penyakit</label>
+                                                    <select name="id_jenis_penyakit" id="" class="form-control">
+                                                        <option value="0">[Silahkan Pilih]</option>
+                                                        <?php while ($data_penyakit = mysqli_fetch_array($query_jenis_penyakit)) { ?>
+                                                            <option value="<?php echo $data_penyakit['id_jenis_penyakit']; ?>" <?php echo $data_penyakit['id_jenis_penyakit'] == $data['id_penyakit'] ? 'selected' : null  ?>><?php echo $data_penyakit['jenis_penyakit']; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
                                                     <label for="">Gejala</label>
                                                     <input type="text" name="gejala" class="form-control" value="<?php echo $data['gejala']; ?>">
                                                 </div>
