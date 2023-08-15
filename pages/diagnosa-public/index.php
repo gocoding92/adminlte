@@ -272,42 +272,50 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th colspan="2">
+                                                <th colspan="3">
                                                     <center> HASIL DIAGNOSA </center>
                                                 </th>
                                             </tr>
                                             <tr>
                                                 <th>Code Penyakit</th>
-                                                <th>Nama Penyakit Penyakit</th>
+                                                <th>Nama Penyakit</th>
+                                                <th>Detail</th>
                                             </tr>
                                             <?php
                                             if (!empty($_POST)) {
                                                 $gejala = $_POST['id_gejala'];
 
-                                                echo "<pre>";
-                                                $property_types = array();
+                                                $property_penyakit = array();
                                                 for ($i = 0; $i < count($gejala); $i++) {
 
-                                                    $sql = "SELECT id_penyakit, id_jenis_tanaman, gejala FROM tbl_gejala WHERE id_gejala='$gejala[$i]' AND delete_at = '0' ";
+                                                    $sql = "SELECT id_penyakit, id_gejala, id_jenis_tanaman, gejala FROM tbl_gejala WHERE id_gejala='$gejala[$i]' AND delete_at = '0' ";
                                                     $query = mysqli_query($db, $sql);
 
                                                     while ($data = mysqli_fetch_array($query)) {
                                                         $sql = "SELECT id_jenis_penyakit, code_penyakit, jenis_penyakit FROM tbl_jenis_penyakit WHERE id_jenis_penyakit=" . $data['id_penyakit'] . " AND delete_at = '0' ";
                                                         $query_penyakit = mysqli_query($db, $sql);
-                                                        $num_rows = mysqli_num_rows($query_penyakit);
 
-                                                        while ($data_penyakit = mysqli_fetch_array($query_penyakit)) {
-                                                            echo "
-                                                                    <tr>
-                                                                        <td>" . $data_penyakit['code_penyakit'] . "</td>
-                                                                        <td>" . $data_penyakit['jenis_penyakit'] . "</td>
-                                                                    </tr>
-                                                                ";
+                                                        while ($data_penyakit = mysqli_fetch_assoc($query_penyakit)) {
+                                                            array_push($property_penyakit, $data_penyakit);
                                                         }
                                                     }
                                                 }
 
-                                                exit;
+                                                $result_data = array();
+                                                foreach ($property_penyakit as $key => $value) {
+                                                    if (!in_array($value, $result_data))
+                                                        $result_data[$key] = $value;
+                                                }
+
+                                                foreach ($result_data as $key => $value) {
+                                                    echo "
+                                                            <tr>
+                                                                <td>" . $value['code_penyakit'] . "</td>
+                                                                <td>" . $value['jenis_penyakit'] . "</td>
+                                                                <td><a href='..\diagnosa\index.php?id=.'><i class='fa fa-search'></i></a></td>
+                                                            </tr>
+                                                        ";
+                                                }
                                             }
                                             ?>
                                         </thead>

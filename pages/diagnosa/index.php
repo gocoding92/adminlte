@@ -44,7 +44,6 @@
                                         <thead>
                                             <tr>
                                                 <th>Nomor</th>
-                                                <th>Jenis Tanaman</th>
                                                 <th>Jenis Penyakit</th>
                                                 <th>Kultur Teknis</th>
                                                 <th>Fisik Mekanis</th>
@@ -58,19 +57,20 @@
 
                                             <?php
                                             $no = 1;
-                                            $sql = "
-                                                            SELECT * FROM tbl_diagnosa AS a 
-                                                            LEFT JOIN tbl_jenis_tanaman AS b 
-                                                            ON a.id_jenis_tanaman = b.id_jenis_tanaman 
 
-                                                            where a.delete_at='0'";
+                                            $sql = "
+                                                                SELECT * FROM tbl_diagnosa AS a 
+                                                                LEFT JOIN tbl_jenis_penyakit AS b
+                                                                ON a.id_jenis_penyakit = b.id_jenis_penyakit 
+
+                                                                where a.delete_at='0'";
+
                                             $query = mysqli_query($db, $sql);
 
                                             while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>
-                                                    <td><?php echo $data['jenis_tanaman']; ?></td>
                                                     <td><?php echo $data['jenis_penyakit']; ?></td>
                                                     <td><?php echo $data['kultur_teknis']; ?></td>
                                                     <td><?php echo $data['fisik_mekanis']; ?></td>

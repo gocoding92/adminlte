@@ -40,16 +40,13 @@
                                 </div>
 
                                 <?php
-                                // query Jenis Tanaman
-                                $sql_jenis_tanaman = "SELECT * FROM tbl_jenis_tanaman WHERE delete_at='0'";
-                                $query_jenis_tanaman = mysqli_query($db, $sql_jenis_tanaman);
 
                                 // query Jenis Penyakit
                                 $sql_jenis_penyakit = "SELECT * FROM tbl_jenis_penyakit WHERE delete_at='0'";
                                 $query_jenis_penyakit = mysqli_query($db, $sql_jenis_penyakit);
 
-
                                 ?>
+
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <form action="controllers/create.php" method="post">
@@ -57,44 +54,38 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Jenis Penyakit</label>
-                                                    <input type="text" class="form-control" name="jenis_penyakit" placeholder="Masukkan Jenis Penyakiit" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="">Jenis Tanaman</label>
-                                                    <select name="id_jenis_tanaman" id="" class="form-control">
+                                                    <select name="id_jenis_penyakit" id="" class="form-control">
                                                         <option value="0">[Silahkan Pilih]</option>
-                                                        <?php while ($data_jenis_tanaman = mysqli_fetch_array($query_jenis_tanaman)) { ?>
-                                                            <option value="<?php echo $data_jenis_tanaman['id_jenis_tanaman'] ?>"><?php echo $data_jenis_tanaman['jenis_tanaman']; ?></option>
+                                                        <?php while ($data_penyakit = mysqli_fetch_array($query_jenis_penyakit)) { ?>
+                                                            <option value="<?php echo $data_penyakit['id_jenis_penyakit']; ?>"><?php echo $data_penyakit['jenis_penyakit']; ?></option>
                                                         <?php } ?>
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Kultur Teknis</label>
                                                     <input type="text" class="form-control" name="kultur_teknis" placeholder="Masukkan Kultur Teknis" required>
                                                 </div>
                                             </div>
+                                        </div>
+
+                                        <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Fisik Mekanis</label>
                                                     <input type="text" class="form-control" name="fisik_mekanis" placeholder="Masukkan Fisik Mekanis">
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Kimiawi</label>
                                                     <input type="text" class="form-control" name="kimiawi" placeholder="Masukkan kimiawi" required>
                                                 </div>
                                             </div>
+                                        </div>
+
+                                        <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">Hayati</label>
