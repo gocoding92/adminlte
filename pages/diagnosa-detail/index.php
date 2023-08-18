@@ -8,31 +8,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DIAGNOSA PENYAKIT</title>
+    <title>DETAIL DIAGNOSA PENYAKIT </title>
 
     <!--link-rel-->
     <?php include '../templates/link-rel.php'; ?>
 
     <?php
-    if (!empty($_POST)) {
-        $gejala = $_POST['id_gejala'];
 
-        $property_types = array();
-        for ($i = 0; $i < count($gejala); $i++) {
+    if (!empty($_GET)) {
+        $id_jenis_penyakit = $_GET['id_jenis_penyakit'];
 
-            $sql = "SELECT id_penyakit, id_jenis_tanaman, gejala FROM tbl_gejala WHERE id_gejala='$gejala[$i]' AND delete_at = '0' ";
-            $query = mysqli_query($db, $sql);
-
-            while ($data = mysqli_fetch_array($query)) {
-                $sql = "SELECT id_jenis_penyakit, code_penyakit, jenis_penyakit FROM tbl_jenis_penyakit WHERE id_jenis_penyakit=" . $data['id_penyakit'] . " AND delete_at = '0' ";
-                $query_penyakit = mysqli_query($db, $sql);
-
-                while ($data_penyakit = mysqli_fetch_array($query_penyakit)) {
-                    // var_dump($data_penyakit);
-                }
-            }
-        }
+        $sql = "
+                SELECT * FROM tbl_diagnosa AS a  
+                LEFT JOIN tbl_jenis_penyakit AS b ON a.id_jenis_penyakit = b.id_jenis_penyakit
+                
+                WHERE a.id_jenis_penyakit='$id_jenis_penyakit' AND a.delete_at = '0'  
+                ";
+        $query = mysqli_query($db, $sql);
+        $data_penyakit_row = mysqli_fetch_array($query);
     }
+
+
     ?>
 
 </head>
@@ -227,47 +223,74 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container">
                     <div class="card">
                         <div class="card-body">
-
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Code Penyakit</label>
+                                    <input type="text" class="form-control" name="jenis_penyakit" value="<?php echo $data_penyakit_row['code_penyakit'] ?>" readonly>
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Jenis Penyakit</label>
-                                    <input type="text" class="form-control" name="jenis_penyakit" placeholder="Masukkan Jenis Penyakiit" readonly>
+                                    <input type="text" class="form-control" name="jenis_penyakit" value="<?php echo $data_penyakit_row['jenis_penyakit'] ?>" readonly>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+
+                            <!-- <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Jenis Tanaman</label>
-                                    <input type="text" class="form-control" name="id_jenis_tanaman" placeholder="Masukkan Jenis Penyakit" readonly>
+                                    <input type="text" class="form-control" name="id_jenis_tanaman" value="<?php // echo $data_penyakit_row['aa'] 
+                                                                                                            ?>" readonly>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Gejala</label>
-                                    <input type="text" class="form-control" name="gejala" placeholder="Masukkan Gejala" readonly>
+
+
+                                    <?php
+                                    if (!empty($_GET)) {
+                                        $id_jenis_penyakit = $_GET['id_jenis_penyakit'];
+
+                                        $sql = "SELECT * FROM tbl_diagnosa WHERE id_jenis_penyakit='$id_jenis_penyakit' AND delete_at = '0'  ";
+                                        $query = mysqli_query($db, $sql);
+
+                                        while ($data_penyakit = mysqli_fetch_array($query)) {
+                                            $sql_gejala = "SELECT * FROM tbl_gejala WHERE id_penyakit=" . $data_penyakit["id_jenis_penyakit"] . " AND delete_at = '0'  ";
+                                            $query_gejala = mysqli_query($db, $sql_gejala);
+
+                                            while ($data_gejala = mysqli_fetch_array($query_gejala)) {
+                                                echo '<input class="form-control" readonly value="' . $data_gejala['gejala'] . '" style="margin-bottom: 10px;">';
+                                            }
+                                        }
+                                    }
+
+                                    ?>
+
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Kultur Teknis</label>
-                                    <input type="text" class="form-control" name="kultur_teknis" placeholder="Masukkan Kultur Teknis" readonly>
+                                    <textarea class="form-control" rows="6" readonly><?php echo $data_penyakit_row['kultur_teknis'] ?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Fisik Mekanis</label>
-                                    <input type="text" class="form-control" name="fisik_mekanis" placeholder="Masukkan Fisik Mekanis" readonly>
+                                    <textarea class="form-control" rows="6" readonly><?php echo $data_penyakit_row['fisik_mekanis'] ?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Kimiawi</label>
-                                    <input type="text" class="form-control" name="kimiawi" placeholder="Masukkan kimiawi" readonly>
+                                    <textarea class="form-control" rows="6" readonly><?php echo $data_penyakit_row['kimiawi'] ?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Hayati</label>
-                                    <input type="text" class="form-control" name="hayati" placeholder="Masukkan hayati" readonly>
+                                    <textarea class="form-control" rows="6" readonly><?php echo $data_penyakit_row['hayati'] ?></textarea>
                                 </div>
                             </div>
                         </div>

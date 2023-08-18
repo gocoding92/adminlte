@@ -100,8 +100,7 @@ db_penyakit_cabai
 
 
 
-git push https://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@github.com/gocoding92/adminlte.git
-
+git push https://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@github.com/gocoding92/adminlte.git
 
 
 

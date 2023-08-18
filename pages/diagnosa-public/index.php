@@ -312,7 +312,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             <tr>
                                                                 <td>" . $value['code_penyakit'] . "</td>
                                                                 <td>" . $value['jenis_penyakit'] . "</td>
-                                                                <td><a href='..\diagnosa\index.php?id=.'><i class='fa fa-search'></i></a></td>
+                                                                <td><a href=../diagnosa-detail?id_jenis_penyakit=" . $value['id_jenis_penyakit'] . "><i class='fa fa-search'></i></a></td>
                                                             </tr>
                                                         ";
                                                 }
