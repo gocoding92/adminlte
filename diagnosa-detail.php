@@ -71,7 +71,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item">
                             <a href="index.php" class="nav-link" style="color: #fff;">
                                 <i class="fa fa-home"></i>
-                                Aplikasi Sistem Pakar Tanaman Cabai
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="diagnosa.php" class="nav-link" style="color: #fff;">
+                                <i class="fa fa-edit"></i>
+                                Diagnosa Penyakit
                             </a>
                         </li>
                     </ul>

@@ -54,7 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </head>
 
-<body class="hold-transition layout-top-nav">
+<body class="hold-transition layout-top-nav" style="background: url(dist/img/Login.jpg); background-repeat: no-repeat; background-size: cover;">
   <div class="wrapper">
 
     <!-- Navbar -->
@@ -96,7 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0"> <i class="fa fa-list-alt"></i>&nbsp; <b>Dashboard</b></h1>
+              <h1 class="m-0"> <i class="fa fa-list-alt"></i>&nbsp; <b>Diagnosa Penyakit</b></h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -109,38 +109,95 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="row">
             <div class="col-lg-12">
               <div class="card" style="border: 1px solid #c3c3c3;">
+
+                <form action="#" method="post">
+                  <?php
+                  $sqlTanaman = "SELECT * FROM tbl_jenis_tanaman where delete_at='0'";
+                  $queryTanaman = mysqli_query($db, $sqlTanaman);
+
+                  ?>
+
+                  <div class="card-body">
+                    <?php while ($dataTanaman = mysqli_fetch_array($queryTanaman)) : ?>
+
+                      <h5 class="mb-3 mt-3" style="font-weight: bold; font-size: 20px;"><i class="fa fa-award"></i> <?php echo $dataTanaman['jenis_tanaman'] ?></h5>
+
+                      <?php
+                      $sqlGejala = "SELECT * FROM tbl_gejala where delete_at='0' AND id_jenis_tanaman=" . $dataTanaman['id_jenis_tanaman'] . " ";
+                      $queryGejala = mysqli_query($db, $sqlGejala);
+                      ?>
+                      <?php while ($dataGejala = mysqli_fetch_array($queryGejala)) : ?>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="id_gejala[]" value="<?php echo $dataGejala['id_gejala'] ?>">
+                          <label class="form-check-label"><?php echo $dataGejala['gejala'] ?></label>
+                        </div>
+                      <?php endwhile; ?>
+                    <?php endwhile; ?>
+
+                    <br />
+
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i>&nbsp; Cek Penyakit</button>
+
+                  </div>
+
+
+                </form>
+
+
                 <div class="card-body">
-                  <h2><b>Tanaman cabai</b></h2>
-                  <h4> Tanaman cabai adalah termasuk suku terung-terungan. Tanaman cabai berbentuk perdu,dan tergolong tanaman semusim. Tanaman cabai dapat hidup di tanah berpasir, tanah liat, atau tanah liat berpasir. Pupuk kandang dan pupuk kompos merupakan bahan organik yang disukai oleh tanaman cabai. Tanaman cabai juga membutuhkan sinar matahari yang cukup, karena selain digunakan untuk fotosintesis juga berfungsi untuk membantu dalam menekan hama. Kandungan zat gizi pada cabai antara lain kalori, protein, lemak, kalsium, fosfor, zat besi, vitamin A, vitamin B, dan vitamin C.
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th colspan="3">
+                          <center> HASIL DIAGNOSA </center>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Code Penyakit</th>
+                        <th>Nama Penyakit</th>
+                        <th>Detail</th>
+                      </tr>
+                      <?php
+                      if (!empty($_POST)) {
+                        $gejala = $_POST['id_gejala'];
 
-                    Artikel ini telah tayang di Kompas.com dengan judul "Cabai: Pengertian, Bagian-bagian, dan Jenisnya" </h4>
-                  <h4><b>Bagian Tanaman Cabai</b></h4>
-                  <h5>Bagian-bagian tanaman cabai Bagian tubuh tanaman cabai terdiri atas batang, daun, dan buah. Berikut penjelasannya: Batang cabai Batang tanaman cabai berdiri tegak. Tingginya kira-kira 50-90 cm. Batang cabai sering diberi ajir untuk membantu menahan buah cabai yang terlalu banyak. Hal itu berguna menyangga batang tanaman cabai agar tetap dapat berdiri tegak. Daun cabai Daun cabai berbentuk lonjong dan bagian ujungnya meruncing. Panjangnya kira-kira 4-10 cm, dan lebarnya kira-kira 1,5-10 cm. Cabai rawit bentuk daunnya agak bulat dan bagian ujungnya runcing. Buah cabai Bentuk buah cabai umumnya memanjang berkisaran 1-10 cm. Buah cabai yang masih muda warnanya hijau dan setelah tua warnanya merah kecoklatan atau merah menyala. Buah cabai rasanya pedas. Sebelum membentuk buah, tanaman cabai akan berbunga terlebih dahulu
+                        $property_penyakit = array();
+                        for ($i = 0; $i < count($gejala); $i++) {
 
-                    Artikel ini telah tayang di Kompas.com dengan judul "Cabai: Pengertian, Bagian-bagian, dan Jenisnya"</h5>
-                  <h4><b>Berikut Nama Penyakit Tanaman cabai : </b>
-                    <h5>
-                      1. Penyakit Layu Fusarium (Fusarium oxysporum f. sp. Melongenae Schlecht) </br>
-                      2. Layu Bakteri (Ralstonia (Pseudomonas solanacearum E.F.Sm)</br>
-                      3 Bercak Daun Cercospora (Cercospora capsici Heald et Wolf)</br>
-                      4 Antraknosa/Penyakit Patek (Colletotrichum capsici (Syd.) Bult. Et. Bisby)</br>
-                      5. Busuk Buah (Fruit rot)</br>
-                      6. Virus Mosaik </br>
-                      7. Virus Kuning </br>
-                      8. Virus Kerupuk </br>
-                      9. Tungau Kuning (Polyphagotarsonemus latus Banks)</br>
-                      10. Trips (Thrips parvispinus Karny)</br>
-                      11. Kutu Daun Persik (Myzus persicae Sulz.)</br>
-                      12. Kutu Kebul (Bemisia tabaci)</br>
-                      13. Ulat Grayak (Spodoptera litura F.)</br>
-                      14. Ulat Buah (Helicoverpa armigera Hubner)</br>
-                      15. Lalat Buah (Bactrocera sp)</br>
-                    </h5>
-                  </h4>
-                  <p> <img src="dist/img/2.jpg" alt=""></p> 
-                  <p> <img src="dist/img/d1.jpg"> </p>
-                  <p> <img src="dist/img/img_d.jpg" alt=""></p>
+                          $sql = "SELECT id_penyakit, id_gejala, id_jenis_tanaman, gejala FROM tbl_gejala WHERE id_gejala='$gejala[$i]' AND delete_at = '0' ";
+                          $query = mysqli_query($db, $sql);
+
+                          while ($data = mysqli_fetch_array($query)) {
+                            $sql = "SELECT id_jenis_penyakit, code_penyakit, jenis_penyakit FROM tbl_jenis_penyakit WHERE id_jenis_penyakit=" . $data['id_penyakit'] . " AND delete_at = '0' ";
+                            $query_penyakit = mysqli_query($db, $sql);
+
+                            while ($data_penyakit = mysqli_fetch_assoc($query_penyakit)) {
+                              array_push($property_penyakit, $data_penyakit);
+                            }
+                          }
+                        }
+
+                        $result_data = array();
+                        foreach ($property_penyakit as $key => $value) {
+                          if (!in_array($value, $result_data))
+                            $result_data[$key] = $value;
+                        }
+
+                        foreach ($result_data as $key => $value) {
+                          echo "
+                                                            <tr>
+                                                                <td>" . $value['code_penyakit'] . "</td>
+                                                                <td>" . $value['jenis_penyakit'] . "</td>
+                                                                <td><a href=diagnosa-detail.php?id_jenis_penyakit=" . $value['id_jenis_penyakit'] . "><i class='fa fa-search'></i></a></td>
+                                                            </tr>
+                                                        ";
+                        }
+                      }
+                      ?>
+                    </thead>
+                  </table>
                 </div>
+
               </div>
             </div>
           </div>

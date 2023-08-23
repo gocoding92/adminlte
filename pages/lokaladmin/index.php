@@ -15,10 +15,13 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background: url(../../dist/img/Login.jpg); background-repeat: no-repeat; background-size: cover;">
   <div class="login-box">
     <div class="login-logo">
-      <b>Sistem Pakar Penyakit Tanaman Cabai</b>
+      <p style="color:white;">
+        <b>Sistem Pakar Penyakit Tanaman Cabai</b>
+
+      </p>
     </div>
     <!-- /.login-logo -->
     <div class="card">
