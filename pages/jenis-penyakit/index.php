@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="TTF-8">
-    <title>Sampel Link</title>
+    <title>Jenis Penyakit</title>
 
     <!--link-rel-->
     <?php include '../templates/link-rel.php'; ?>

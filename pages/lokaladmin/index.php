@@ -84,9 +84,11 @@
    position: fixed;
    left: 0;
    bottom: 0;
-   width: 100%;">
+   width: 100%;"
+   style="position: absolute; 
+   bottom: 0;">
     <marquee behavior="alternate" scrollamount="5">
-      <h3>Copyright Nauval Banyu Arrachman </h3>
+    <strong>Copyright &copy; Nauval Banyu Arrachman</strong> 
     </marquee>
   </footer>
 </body>

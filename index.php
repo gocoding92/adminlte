@@ -111,15 +111,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="card" style="border: 1px solid #c3c3c3;">
                 <div class="card-body">
                   <h2><b>Tanaman cabai</b></h2>
-                  <h4> Tanaman cabai adalah termasuk suku terung-terungan. Tanaman cabai berbentuk perdu,dan tergolong tanaman semusim. Tanaman cabai dapat hidup di tanah berpasir, tanah liat, atau tanah liat berpasir. Pupuk kandang dan pupuk kompos merupakan bahan organik yang disukai oleh tanaman cabai. Tanaman cabai juga membutuhkan sinar matahari yang cukup, karena selain digunakan untuk fotosintesis juga berfungsi untuk membantu dalam menekan hama. Kandungan zat gizi pada cabai antara lain kalori, protein, lemak, kalsium, fosfor, zat besi, vitamin A, vitamin B, dan vitamin C.
-
-                    Artikel ini telah tayang di Kompas.com dengan judul "Cabai: Pengertian, Bagian-bagian, dan Jenisnya" </h4>
+                  <h6> Tanaman cabai adalah termasuk suku terung-terungan. Tanaman cabai berbentuk perdu,dan tergolong tanaman semusim. Tanaman cabai dapat hidup di tanah berpasir, tanah liat, atau tanah liat berpasir. Pupuk kandang dan pupuk kompos merupakan bahan organik yang disukai oleh tanaman cabai. Tanaman cabai juga membutuhkan sinar matahari yang cukup, karena selain digunakan untuk fotosintesis juga berfungsi untuk membantu dalam menekan hama. Kandungan zat gizi pada cabai antara lain kalori, protein, lemak, kalsium, fosfor, zat besi, vitamin A, vitamin B, dan vitamin C. </h6>
                   <h4><b>Bagian Tanaman Cabai</b></h4>
-                  <h5>Bagian-bagian tanaman cabai Bagian tubuh tanaman cabai terdiri atas batang, daun, dan buah. Berikut penjelasannya: Batang cabai Batang tanaman cabai berdiri tegak. Tingginya kira-kira 50-90 cm. Batang cabai sering diberi ajir untuk membantu menahan buah cabai yang terlalu banyak. Hal itu berguna menyangga batang tanaman cabai agar tetap dapat berdiri tegak. Daun cabai Daun cabai berbentuk lonjong dan bagian ujungnya meruncing. Panjangnya kira-kira 4-10 cm, dan lebarnya kira-kira 1,5-10 cm. Cabai rawit bentuk daunnya agak bulat dan bagian ujungnya runcing. Buah cabai Bentuk buah cabai umumnya memanjang berkisaran 1-10 cm. Buah cabai yang masih muda warnanya hijau dan setelah tua warnanya merah kecoklatan atau merah menyala. Buah cabai rasanya pedas. Sebelum membentuk buah, tanaman cabai akan berbunga terlebih dahulu
-
-                    Artikel ini telah tayang di Kompas.com dengan judul "Cabai: Pengertian, Bagian-bagian, dan Jenisnya"</h5>
+                  <h6>Bagian-bagian tanaman cabai Bagian tubuh tanaman cabai terdiri atas batang, daun, dan buah. Berikut penjelasannya: Batang cabai Batang tanaman cabai berdiri tegak. Tingginya kira-kira 50-90 cm. Batang cabai sering diberi ajir untuk membantu menahan buah cabai yang terlalu banyak. Hal itu berguna menyangga batang tanaman cabai agar tetap dapat berdiri tegak. Daun cabai Daun cabai berbentuk lonjong dan bagian ujungnya meruncing. Panjangnya kira-kira 6-10 cm, dan lebarnya kira-kira 1,5-10 cm. Cabai rawit bentuk daunnya agak bulat dan bagian ujungnya runcing. Buah cabai Bentuk buah cabai umumnya memanjang berkisaran 1-10 cm. Buah cabai yang masih muda warnanya hijau dan setelah tua warnanya merah kecoklatan atau merah menyala. Buah cabai rasanya pedas. Sebelum membentuk buah, tanaman cabai akan berbunga terlebih dahulu.</h6>
                   <h4><b>Berikut Nama Penyakit Tanaman cabai : </b>
-                    <h5>
+                    <h6>
                       1. Penyakit Layu Fusarium (Fusarium oxysporum f. sp. Melongenae Schlecht) </br>
                       2. Layu Bakteri (Ralstonia (Pseudomonas solanacearum E.F.Sm)</br>
                       3 Bercak Daun Cercospora (Cercospora capsici Heald et Wolf)</br>
@@ -135,9 +131,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       13. Ulat Grayak (Spodoptera litura F.)</br>
                       14. Ulat Buah (Helicoverpa armigera Hubner)</br>
                       15. Lalat Buah (Bactrocera sp)</br>
-                    </h5>
-                  </h4>
-                  <p> <img src="dist/img/2.jpg" alt=""></p> 
+                    </h4>
+                  </h6>
+                  <p> <img src="dist/img/2.jpg" alt=""></p>
                   <p> <img src="dist/img/d1.jpg"> </p>
                   <p> <img src="dist/img/img_d.jpg" alt=""></p>
                 </div>
@@ -164,12 +160,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         Anything you want
       </div>
       <!-- Default to the left -->
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; Nauval Banyu Arrachman</strong>
     </footer>
   </div>
   <!-- ./wrapper -->
-
-  <!-- REQUIRED SCRIPTS -->
 
   <!-- // script-->
   <!-- jQuery -->
