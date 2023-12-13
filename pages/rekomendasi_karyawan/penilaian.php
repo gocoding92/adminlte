@@ -190,64 +190,22 @@
                             <tbody>
                             <tr>
                                 <td>
-                                <select name="bobot1" class="form-control">
-                                    <option value="0">Pilih Bobot</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                    <input type="number" name="bobot1" class="form-control" placeholder="Bobot 1">
                                 </td>
                                 <td>
-                                <select name="bobot2" class="form-control">
-                                    <option value="0">Pilih Bobot</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                    <input type="number" name="bobot2" class="form-control" placeholder="Bobot 2">
                                 </td>
                                 <td>
-                                <select name="bobot3" class="form-control">
-                                    <option value="0">Pilih Bobot</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                    <input type="number" name="bobot3" class="form-control" placeholder="Bobot 3">
                                 </td>
                                 <td>
-                                <select name="bobot4" class="form-control">
-                                    <option value="0">Pilih Bobot</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                    <input type="number" name="bobot4" class="form-control" placeholder="Bobot 4">
                                 </td>
                                 <td>
-                                <select name="bobot5" class="form-control">
-                                    <option value="0">Pilih Bobot</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                    <input type="number" name="bobot5" class="form-control" placeholder="Bobot 5">
                                 </td>
                                 <td>
-                                <select name="bobot6" class="form-control">
-                                    <option value="0">Pilih Bobot</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                    <input type="number" name="bobot6" class="form-control" placeholder="Bobot 6">
                                 </td>
                             </tr>
                             </tbody>
